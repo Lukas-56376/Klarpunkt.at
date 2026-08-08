@@ -633,11 +633,231 @@ table.compare .dash{ color:var(--color-text-soft); }
 @media (max-width:560px){ .addons-grid{ grid-template-columns:1fr; } }
 
 /* ============================================================
+   VORHER / NACHHER
+   ============================================================ */
+.transform-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+.transform-card{
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  padding:24px;
+  background:var(--color-bg);
+}
+.transform-label{
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--color-text-soft);
+  margin-bottom:10px;
+}
+.transform-title{ font-family:var(--font-display); font-weight:700; margin-bottom:14px; font-size:1rem; }
+.transform-before ul li{
+  font-size:.85rem;
+  color:var(--color-text-muted);
+  padding:3px 0;
+}
+.transform-arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:16px 0;
+  color:var(--color-accent);
+}
+.transform-arrow .icon{ width:18px; height:18px; transform:rotate(90deg); }
+.transform-after{
+  background:var(--color-accent-light);
+  border-radius:var(--radius-md);
+  padding:16px 18px;
+}
+.transform-after strong{ display:block; margin-bottom:8px; font-family:var(--font-display); font-size:.92rem; }
+.transform-after ul li{
+  font-size:.84rem;
+  color:var(--color-text);
+  padding:3px 0;
+  display:flex;
+  gap:7px;
+  align-items:flex-start;
+}
+.transform-after ul li .icon{ width:13px; height:13px; color:var(--color-accent); margin-top:3px; flex-shrink:0; }
+.demo-note{
+  text-align:center;
+  font-size:.8rem;
+  color:var(--color-text-soft);
+  margin-top:28px;
+}
+@media (max-width:900px){ .transform-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   WELCHES PAKET PASST ZU MIR
+   ============================================================ */
+.fit-grid{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:14px;
+}
+.fit-card{
+  padding:20px 18px;
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  background:var(--color-bg);
+}
+.fit-card.featured{
+  border-color:var(--color-accent);
+  background:var(--color-accent-light);
+}
+.fit-price{ font-size:.76rem; font-weight:700; color:var(--color-accent); margin-bottom:10px; letter-spacing:.02em; }
+.fit-quote{ font-family:var(--font-display); font-weight:700; font-size:.95rem; margin-bottom:8px; line-height:1.3; }
+.fit-desc{ font-size:.82rem; color:var(--color-text-muted); margin:0; }
+@media (max-width:1100px){ .fit-grid{ grid-template-columns:repeat(3, 1fr); } }
+@media (max-width:700px){ .fit-grid{ grid-template-columns:1fr; max-width:380px; margin:0 auto; } }
+
+/* ============================================================
+   CTA-BANNER
+   ============================================================ */
+.cta-banner{
+  background:var(--color-bg-dark);
+  color:#fff;
+  border-radius:var(--radius-lg);
+  padding:52px 40px;
+  text-align:center;
+  margin-top:56px;
+}
+.cta-banner h2{ color:#fff; font-size:clamp(1.3rem, 2.6vw, 1.7rem); margin-bottom:.4em; }
+.cta-banner p{ color:rgba(255,255,255,.72); max-width:480px; margin:0 auto 26px; }
+@media (max-width:600px){ .cta-banner{ padding:40px 24px; } }
+
+/* ============================================================
+   WAS BRAUCHEN WIR VON IHNEN
+   ============================================================ */
+.need-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+}
+.need-note{
+  margin-top:36px;
+  padding:20px 24px;
+  background:var(--color-accent-light);
+  border-radius:var(--radius-md);
+  text-align:center;
+}
+.need-note strong{ display:block; font-family:var(--font-display); color:var(--color-accent-dark); margin-bottom:4px; }
+.need-note span{ font-size:.88rem; color:var(--color-text-muted); }
+@media (max-width:980px){ .need-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:560px){ .need-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   INTERAKTIVE DEMO (SMARTPHONE)
+   ============================================================ */
+.demo-wrap{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:56px;
+  align-items:center;
+}
+.demo-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--color-accent-dark);
+  background:var(--color-accent-light);
+  padding:5px 12px;
+  border-radius:20px;
+  margin-bottom:16px;
+}
+.phone-outer{ display:flex; justify-content:center; }
+.phone-shell{
+  width:270px;
+  border-radius:34px;
+  padding:12px;
+  background:var(--color-bg-dark);
+  box-shadow:var(--shadow-lg);
+}
+.phone-screen{
+  background:var(--color-bg);
+  border-radius:24px;
+  padding:26px 20px 20px;
+  position:relative;
+}
+.phone-notch{
+  width:60px; height:5px; border-radius:4px;
+  background:rgba(0,0,0,.15);
+  margin:0 auto 18px;
+}
+.phone-header{ text-align:center; margin-bottom:18px; }
+.phone-avatar{
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  margin:0 auto 10px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family:var(--font-display); font-weight:700; font-size:.85rem;
+}
+.phone-name{ font-family:var(--font-display); font-weight:700; font-size:1rem; }
+.phone-sub{ font-size:.78rem; color:var(--color-text-muted); }
+.phone-buttons{ display:flex; flex-direction:column; gap:8px; }
+.phone-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:100%;
+  padding:11px 14px;
+  border-radius:10px;
+  background:var(--color-bg-alt);
+  border:1px solid var(--color-border);
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--color-text);
+  text-align:left;
+  transition:border-color .15s ease, background-color .15s ease;
+}
+.phone-btn:hover{ border-color:var(--color-accent); background:var(--color-accent-light); }
+.phone-btn .icon{ width:16px; height:16px; color:var(--color-accent); flex-shrink:0; }
+.phone-tooltip{
+  font-size:.72rem;
+  color:var(--color-accent-dark);
+  background:var(--color-accent-light);
+  border-radius:8px;
+  padding:8px 10px;
+  margin-top:4px;
+  display:none;
+}
+.phone-tooltip.is-visible{ display:block; }
+.phone-footnote{ text-align:center; font-size:.7rem; color:var(--color-text-soft); margin-top:16px; }
+@media (max-width:900px){ .demo-wrap{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   ECHTE PROJEKTE (PLATZHALTER)
+   ============================================================ */
+.projects-placeholder{
+  text-align:center;
+  padding:64px 32px;
+  border:1px dashed var(--color-border-strong);
+  border-radius:var(--radius-lg);
+  color:var(--color-text-muted);
+}
+.projects-placeholder .icon-wrap{
+  width:44px; height:44px; border-radius:12px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 16px;
+}
+.projects-placeholder .icon-wrap .icon{ width:21px; height:21px; }
+.projects-placeholder p{ margin:0; font-size:.98rem; }
+
+/* ============================================================
    TRUST / WHY US
    ============================================================ */
 .trust-grid{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(4, 1fr);
   gap:20px;
 }
 .trust-item{
@@ -1081,6 +1301,95 @@ table.compare .dash{ color:var(--color-text-soft); }
   </section>
 
   <!-- ============================================================
+       VORHER / NACHHER
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Ergebnis</span>
+        <h2>Vom einfachen Online-Auftritt zur digitalen Visitenkarte.</h2>
+        <p>Viele kleine Unternehmen haben bereits alles, was sie brauchen – nur nicht übersichtlich an einem Ort. LUKIO verbindet die wichtigsten digitalen Kontaktpunkte zu einer einfachen Lösung.</p>
+      </div>
+      <div class="transform-grid">
+        <div class="transform-card reveal">
+          <div class="transform-title">Beispiel: Friseur</div>
+          <div class="transform-before">
+            <div class="transform-label">Vorher</div>
+            <ul>
+              <li>Instagram</li>
+              <li>Telefonnummer</li>
+              <li>Öffnungszeiten</li>
+              <li>Google</li>
+              <li>Terminbuchung – alles getrennt</li>
+            </ul>
+          </div>
+          <div class="transform-arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></div>
+          <div class="transform-after">
+            <strong>Eine zentrale LUKIO-Seite</strong>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Termin buchen</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Instagram</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>WhatsApp</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Google Maps</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Google Bewertung</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Öffnungszeiten</li>
+            </ul>
+          </div>
+        </div>
+        <div class="transform-card reveal">
+          <div class="transform-title">Beispiel: Restaurant</div>
+          <div class="transform-before">
+            <div class="transform-label">Vorher</div>
+            <ul>
+              <li>Speisekarte als PDF</li>
+              <li>Instagram</li>
+              <li>Google Maps</li>
+              <li>Telefonnummer</li>
+            </ul>
+          </div>
+          <div class="transform-arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></div>
+          <div class="transform-after">
+            <strong>QR-Code auf dem Tisch</strong>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Speisekarte</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Öffnungszeiten</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Standort</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Reservierung</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Instagram</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Google Bewertung</li>
+            </ul>
+          </div>
+        </div>
+        <div class="transform-card reveal">
+          <div class="transform-title">Beispiel: Beauty-Studio</div>
+          <div class="transform-before">
+            <div class="transform-label">Vorher</div>
+            <ul>
+              <li>Instagram</li>
+              <li>WhatsApp</li>
+              <li>Preisliste</li>
+              <li>Google</li>
+            </ul>
+          </div>
+          <div class="transform-arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></div>
+          <div class="transform-after">
+            <strong>Eine zentrale digitale Anlaufstelle</strong>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Termin</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Preise</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Instagram</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>WhatsApp</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Google Maps</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Bewertungen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="demo-note reveal">Diese drei Beispiele dienen zur Veranschaulichung und zeigen keine echten Kunden.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
        ZIELGRUPPEN
        ============================================================ -->
   <section class="section" id="zielgruppen">
@@ -1127,6 +1436,34 @@ table.compare .dash{ color:var(--color-text-soft); }
         <span class="eyebrow">Pakete</span>
         <h2>Einfach. Transparent. Ohne unnötige Pakete.</h2>
         <p>Fünf klar abgegrenzte Pakete – jedes davon deckt einen konkreten Bedarf ab.</p>
+      </div>
+
+      <div class="fit-grid" style="margin-bottom:56px;">
+        <div class="fit-card reveal">
+          <div class="fit-price">Starter · €19</div>
+          <div class="fit-quote">„Ich brauche nur das Wichtigste."</div>
+          <p class="fit-desc">Für Unternehmen, die ihren grundlegenden digitalen Auftritt verbessern möchten.</p>
+        </div>
+        <div class="fit-card reveal">
+          <div class="fit-price">Social · €29</div>
+          <div class="fit-quote">„Ich möchte Instagram besser nutzen."</div>
+          <p class="fit-desc">Für Unternehmen, die Social Media stärker mit ihren Kunden verbinden möchten.</p>
+        </div>
+        <div class="fit-card featured reveal">
+          <div class="fit-price">Business · €49 · Empfohlen</div>
+          <div class="fit-quote">„Ich möchte alles Wichtige an einem Ort."</div>
+          <p class="fit-desc">Für die meisten lokalen Unternehmen.</p>
+        </div>
+        <div class="fit-card reveal">
+          <div class="fit-price">Business Plus · €69</div>
+          <div class="fit-quote">„Ich habe eine Speisekarte oder Preisliste."</div>
+          <p class="fit-desc">Ideal für Restaurants, Cafés, Friseure, Barbershops und Studios.</p>
+        </div>
+        <div class="fit-card reveal">
+          <div class="fit-price">Complete · €89</div>
+          <div class="fit-quote">„Ich möchte möglichst alles erledigt haben."</div>
+          <p class="fit-desc">Für Unternehmen, die mehrere digitale Lösungen gleichzeitig einrichten möchten.</p>
+        </div>
       </div>
 
       <div class="pricing-grid">
@@ -1234,6 +1571,12 @@ table.compare .dash{ color:var(--color-text-soft); }
           </table>
         </div>
       </div>
+
+      <div class="cta-banner reveal">
+        <h2>Nicht sicher, welches Paket passt?</h2>
+        <p>Schreiben Sie uns kurz, was Ihr Unternehmen macht und was Sie verbessern möchten. Wir sagen Ihnen, welches Paket am sinnvollsten ist.</p>
+        <a href="#kontaktformular" class="btn btn-primary">Unverbindlich fragen</a>
+      </div>
     </div>
   </section>
 
@@ -1273,6 +1616,82 @@ table.compare .dash{ color:var(--color-text-soft); }
   </section>
 
   <!-- ============================================================
+       WAS BRAUCHEN WIR VON IHNEN
+       ============================================================ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Ihr Aufwand</span>
+        <h2>Sie liefern die Informationen. Wir kümmern uns um den Rest.</h2>
+      </div>
+      <div class="need-grid">
+        <div class="process-step reveal">
+          <span class="process-num">01</span>
+          <h3>Unternehmensdaten</h3>
+          <p>Name, Adresse, Öffnungszeiten und Kontaktdaten.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-num">02</span>
+          <h3>Logo &amp; Bilder</h3>
+          <p>Falls vorhanden, Logo und passende Bilder.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-num">03</span>
+          <h3>Links</h3>
+          <p>Instagram, Website, WhatsApp, Terminbuchung usw.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-num">04</span>
+          <h3>Inhalte</h3>
+          <p>Preise, Speisekarte oder Dienstleistungen, falls benötigt.</p>
+        </div>
+      </div>
+      <div class="need-note reveal">
+        <strong>Keine technischen Kenntnisse notwendig.</strong>
+        <span>Sie müssen nichts programmieren und keine komplizierte Software bedienen.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INTERAKTIVE DEMO
+       ============================================================ -->
+  <section class="section">
+    <div class="container demo-wrap">
+      <div class="demo-copy reveal">
+        <span class="demo-tag">Beispiel · keine echte Kundenseite</span>
+        <h2>So sieht es für Ihre Kunden aus.</h2>
+        <p style="color:var(--color-text-muted); font-size:1.05rem;">Ein realistisches Beispiel, wie eine zentrale LUKIO-Seite für ein Unternehmen aussehen kann. Tippen Sie auf einen der Buttons, um zu sehen, wohin er führen würde.</p>
+        <p style="color:var(--color-text-muted); margin-bottom:28px;">Genau solche digitalen Lösungen richten wir für lokale Unternehmen ein.</p>
+        <a href="#pakete" class="btn btn-primary">Pakete ansehen</a>
+      </div>
+      <div class="phone-outer reveal">
+        <div class="phone-shell">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-header">
+              <div class="phone-avatar">MB</div>
+              <div class="phone-name">Max Barber</div>
+              <div class="phone-sub">Barbershop · Wien</div>
+            </div>
+            <div class="phone-buttons">
+              <button type="button" class="phone-btn js-demo-btn" data-target="Terminbuchung"><svg class="icon"><use href="#i-clock"/></svg>Termin buchen</button>
+              <button type="button" class="phone-btn js-demo-btn" data-target="WhatsApp-Chat"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</button>
+              <button type="button" class="phone-btn js-demo-btn" data-target="Instagram-Profil"><svg class="icon"><use href="#i-instagram"/></svg>Instagram</button>
+              <button type="button" class="phone-btn js-demo-btn" data-target="Google Maps"><svg class="icon"><use href="#i-map-pin"/></svg>Google Maps</button>
+              <button type="button" class="phone-btn js-demo-btn" data-target="Google-Bewertungsseite"><svg class="icon"><use href="#i-star"/></svg>Google Bewertung</button>
+              <button type="button" class="phone-btn js-demo-btn" data-target="Preisliste"><svg class="icon"><use href="#i-card"/></svg>Preise</button>
+              <button type="button" class="phone-btn js-demo-btn" data-target="Öffnungszeiten"><svg class="icon"><use href="#i-image"/></svg>Öffnungszeiten</button>
+              <div class="phone-tooltip" id="phone-tooltip"></div>
+            </div>
+            <div class="phone-footnote">Demo-Ansicht · Max Barber ist ein Beispielunternehmen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        ZUSATZLEISTUNGEN
        ============================================================ -->
   <section class="section section-alt">
@@ -1296,6 +1715,22 @@ table.compare .dash{ color:var(--color-text-soft); }
   </section>
 
   <!-- ============================================================
+       ECHTE PROJEKTE
+       ============================================================ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Unsere Arbeiten</span>
+        <h2>Echte Projekte</h2>
+      </div>
+      <div class="projects-placeholder reveal">
+        <div class="icon-wrap"><svg class="icon"><use href="#i-image"/></svg></div>
+        <p>Demnächst: echte Projekte von lokalen Unternehmen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        VERTRAUEN
        ============================================================ -->
   <section class="section">
@@ -1308,17 +1743,22 @@ table.compare .dash{ color:var(--color-text-soft); }
         <div class="trust-item reveal">
           <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
           <h3>Transparente Preise</h3>
-          <p>Feste Paketpreise ohne versteckte Kosten oder Folgeverträge.</p>
+          <p>Klare Pakete ohne komplizierte Preisstruktur.</p>
         </div>
         <div class="trust-item reveal">
           <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
-          <h3>Keine unnötigen Fachbegriffe</h3>
-          <p>Wir erklären, was wir tun – verständlich und ohne Umwege.</p>
+          <h3>Einfacher Ablauf</h3>
+          <p>Sie schicken uns Ihre Informationen – wir kümmern uns um die Einrichtung.</p>
         </div>
         <div class="trust-item reveal">
           <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
-          <h3>Auf kleine Unternehmen zugeschnitten</h3>
-          <p>Unsere Pakete sind für den tatsächlichen Bedarf lokaler Betriebe gemacht.</p>
+          <h3>Für lokale Unternehmen</h3>
+          <p>Unsere Lösungen sind speziell auf kleine und lokale Betriebe ausgelegt.</p>
+        </div>
+        <div class="trust-item reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
+          <h3>Keine unnötige Technik</h3>
+          <p>Wir konzentrieren uns auf Lösungen, die Kunden tatsächlich nutzen können.</p>
         </div>
       </div>
     </div>
@@ -1394,16 +1834,12 @@ table.compare .dash{ color:var(--color-text-soft); }
     <div class="container contact-wrap">
       <div class="contact-info reveal">
         <span class="eyebrow">Kontakt</span>
-        <h2>Sie möchten starten?</h2>
-        <p>Wählen Sie Ihr Paket oder senden Sie uns eine unverbindliche Anfrage. Wir melden uns anschließend mit den nächsten Schritten.</p>
+        <h2>Bereit für einen einfacheren digitalen Auftritt?</h2>
+        <p>Wählen Sie ein Paket oder erzählen Sie uns kurz, was Sie für Ihr Unternehmen benötigen.</p>
         <div class="contact-channels">
           <a class="contact-channel" href="mailto:hallo@lukio.at">
             <span class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></span>
             <span>E-Mail<br><small>hallo@lukio.at</small></span>
-          </a>
-          <a class="contact-channel" href="https://wa.me/436601234567" target="_blank" rel="noopener">
-            <span class="icon-wrap"><svg class="icon"><use href="#i-whatsapp"/></svg></span>
-            <span>WhatsApp<br><small>+43 660 123 4567</small></span>
           </a>
           <a class="contact-channel" href="#kontaktformular">
             <span class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></span>
@@ -1488,7 +1924,6 @@ table.compare .dash{ color:var(--color-text-soft); }
       <div class="footer-col">
         <h4>Kontakt</h4>
         <div class="contact-line"><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:hallo@lukio.at">hallo@lukio.at</a></div>
-        <div class="contact-line"><svg class="icon"><use href="#i-whatsapp"/></svg><a href="https://wa.me/436601234567" target="_blank" rel="noopener">+43 660 123 4567</a></div>
       </div>
       <div class="footer-col">
         <h4>Rechtliches</h4>
@@ -1599,6 +2034,21 @@ table.compare .dash{ color:var(--color-text-soft); }
 
     successBox.classList.add('is-visible');
     window.location.href = mailto;
+  });
+
+  // Demo-Smartphone: Buttons zeigen einen kurzen Hinweis, wohin sie in einer echten LUKIO-Seite führen würden
+  var demoTooltip = document.getElementById('phone-tooltip');
+  document.querySelectorAll('.js-demo-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = btn.getAttribute('data-target');
+      if (!demoTooltip) return;
+      demoTooltip.textContent = '→ In einer echten LUKIO-Seite öffnet dieser Button: ' + target;
+      demoTooltip.classList.add('is-visible');
+      clearTimeout(demoTooltip._hideTimer);
+      demoTooltip._hideTimer = setTimeout(function(){
+        demoTooltip.classList.remove('is-visible');
+      }, 3200);
+    });
   });
 
   // Scroll-Reveal
