@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klarpunkt – Digitale Lösungen für lokale Unternehmen</title>
+<meta name="description" content="Klarpunkt richtet Google-Profil, digitale Visitenkarte, QR-Codes und Social-Media-Auftritt für kleine, lokale Unternehmen ein – transparent, einfach, ohne technischen Aufwand.">
+<meta name="theme-color" content="#0f6f6a">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Klarpunkt – Digitale Lösungen für lokale Unternehmen">
+<meta property="og:description" content="Google-Profil, digitale Visitenkarte, QR-Codes und Social Media – professionell eingerichtet für Friseure, Cafés, Studios und lokale Dienstleister.">
+<meta property="og:locale" content="de_AT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   KLARPUNKT – DESIGN TOKENS
+   Alle zentralen Werte (Farben, Abstände, Radien) sind hier
+   gesammelt und können an einer Stelle geändert werden.
+   ============================================================ */
+:root{
+  --color-bg:            #ffffff;
+  --color-bg-alt:        #f5f7f9;
+  --color-bg-dark:       #0f1520;
+  --color-text:          #12181f;
+  --color-text-muted:    #5b6672;
+  --color-text-soft:     #8993a0;
+  --color-border:        #e4e8ec;
+  --color-border-strong: #d3d9df;
+
+  --color-accent:        #0f6f6a;
+  --color-accent-dark:   #0b5652;
+  --color-accent-light:  #e6f3f2;
+  --color-accent-text:   #ffffff;
+
+  --font-display: 'Manrope', 'Inter', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 2px rgba(18,24,31,.05), 0 1px 1px rgba(18,24,31,.04);
+  --shadow-md: 0 6px 20px rgba(18,24,31,.07);
+  --shadow-lg: 0 16px 40px rgba(18,24,31,.10);
+
+  --max-width: 1180px;
+  --nav-height: 72px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--color-text);
+  background:var(--color-bg);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  font-size:16px;
+}
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:800;
+  line-height:1.15;
+  margin:0 0 .5em 0;
+  letter-spacing:-0.01em;
+}
+p{ margin:0 0 1em 0; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+img,svg{ display:block; max-width:100%; }
+button{ font-family:inherit; cursor:pointer; }
+input, select, textarea{ font-family:inherit; font-size:1rem; }
+
+:focus-visible{
+  outline:2px solid var(--color-accent);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 24px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--color-accent);
+  margin-bottom:14px;
+}
+
+.section{
+  padding:96px 0;
+}
+.section-alt{ background:var(--color-bg-alt); }
+.section-head{
+  max-width:640px;
+  margin:0 0 48px 0;
+}
+.section-head.center{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+.section-head h2{ font-size:clamp(1.6rem, 3.2vw, 2.2rem); }
+.section-head p{ color:var(--color-text-muted); font-size:1.05rem; margin-bottom:0; }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 24px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:.98rem;
+  border:1px solid transparent;
+  transition:transform .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+  white-space:nowrap;
+  min-height:44px;
+}
+.btn:active{ transform:translateY(1px); }
+.btn-primary{
+  background:var(--color-accent);
+  color:var(--color-accent-text);
+}
+.btn-primary:hover{ background:var(--color-accent-dark); }
+.btn-secondary{
+  background:transparent;
+  border-color:var(--color-border-strong);
+  color:var(--color-text);
+}
+.btn-secondary:hover{ border-color:var(--color-accent); color:var(--color-accent); }
+.btn-block{ width:100%; }
+.btn-sm{ padding:10px 18px; font-size:.92rem; min-height:38px; }
+
+.icon{ width:1em; height:1em; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+
+/* reveal-on-scroll */
+.reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:var(--nav-height);
+  display:flex;
+  align-items:center;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.nav.is-scrolled{
+  border-bottom-color:var(--color-border);
+  box-shadow:0 1px 0 rgba(18,24,31,.02);
+}
+.nav .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:1.18rem;
+  color:var(--color-text);
+}
+.nav-logo .dot{ color:var(--color-accent); }
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+}
+.nav-links a{
+  font-size:.95rem;
+  font-weight:500;
+  color:var(--color-text-muted);
+  transition:color .15s ease;
+}
+.nav-links a:hover{ color:var(--color-text); }
+.nav-actions{ display:flex; align-items:center; gap:16px; }
+.nav-toggle{
+  display:none;
+  background:none;
+  border:none;
+  padding:8px;
+  color:var(--color-text);
+}
+.nav-toggle .icon{ width:24px; height:24px; }
+
+.nav-mobile-panel{
+  position:fixed;
+  inset:var(--nav-height) 0 0 0;
+  background:var(--color-bg);
+  z-index:99;
+  display:none;
+  flex-direction:column;
+  padding:24px;
+  overflow-y:auto;
+}
+.nav-mobile-panel.is-open{ display:flex; }
+.nav-mobile-panel a{
+  padding:16px 4px;
+  font-size:1.1rem;
+  font-weight:600;
+  border-bottom:1px solid var(--color-border);
+}
+.nav-mobile-panel .btn{ margin-top:24px; }
+
+@media (max-width: 900px){
+  .nav-links{ display:none; }
+  .nav-actions .btn-primary.desktop-only{ display:none; }
+  .nav-toggle{ display:inline-flex; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  padding:88px 0 80px;
+  overflow:hidden;
+}
+.hero .container{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:56px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(2.1rem, 4.4vw, 3.2rem);
+  margin-bottom:.45em;
+}
+.hero-sub{
+  font-size:1.15rem;
+  color:var(--color-text-muted);
+  max-width:520px;
+  margin-bottom:32px;
+}
+.hero-ctas{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+}
+.hero-trustline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 20px;
+  font-size:.88rem;
+  color:var(--color-text-soft);
+}
+.hero-trustline span{ display:inline-flex; align-items:center; gap:6px; }
+.hero-trustline .icon{ width:15px; height:15px; color:var(--color-accent); }
+
+/* Hero visual: composed UI cluster */
+.hero-visual{
+  position:relative;
+  height:440px;
+}
+.hv-card{
+  position:absolute;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  padding:20px;
+}
+.hv-profile{
+  top:0; left:6%;
+  width:280px;
+  z-index:3;
+}
+.hv-profile .hv-row{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.hv-avatar{
+  width:44px; height:44px; border-radius:50%;
+  background:linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-family:var(--font-display); font-size:.9rem;
+}
+.hv-lines{ flex:1; }
+.hv-line{ height:8px; border-radius:4px; background:var(--color-bg-alt); margin-bottom:6px; }
+.hv-line.w60{ width:60%; }
+.hv-line.w40{ width:40%; }
+.hv-chip-row{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
+.hv-chip{
+  display:flex; align-items:center; gap:6px;
+  font-size:.76rem; font-weight:600; color:var(--color-text-muted);
+  background:var(--color-bg-alt); border-radius:20px; padding:6px 10px;
+}
+.hv-chip .icon{ width:13px; height:13px; }
+
+.hv-review{
+  top:52%; right:2%;
+  width:220px;
+  z-index:2;
+}
+.hv-stars{ display:flex; gap:3px; color:var(--color-accent); margin-bottom:10px; }
+.hv-stars .icon{ width:16px; height:16px; fill:currentColor; }
+.hv-review .hv-line{ background:var(--color-bg-alt); }
+
+.hv-qr{
+  bottom:0; left:20%;
+  width:150px;
+  z-index:4;
+  text-align:center;
+}
+.hv-qr-grid{
+  display:grid;
+  grid-template-columns:repeat(6, 1fr);
+  gap:3px;
+  margin-bottom:10px;
+}
+.hv-qr-grid span{ aspect-ratio:1; border-radius:1px; background:var(--color-text); }
+.hv-qr-grid span:nth-child(3n){ background:var(--color-bg-alt); }
+.hv-qr-grid span:nth-child(7n){ background:var(--color-accent); }
+.hv-qr small{ font-size:.72rem; color:var(--color-text-soft); font-weight:600; }
+
+.hv-insta{
+  top:8%; right:0;
+  width:auto;
+  padding:12px 16px;
+  display:flex; align-items:center; gap:10px;
+  z-index:1;
+}
+.hv-insta .icon{ width:20px; height:20px; color:var(--color-accent); }
+.hv-insta strong{ font-size:.85rem; }
+.hv-insta small{ display:block; color:var(--color-text-soft); font-size:.72rem; }
+
+.hv-blob{
+  position:absolute; inset:8% -6% -8% 8%;
+  background:var(--color-accent-light);
+  border-radius:40% 60% 55% 45% / 50% 45% 55% 50%;
+  z-index:0;
+}
+
+@media (max-width: 980px){
+  .hero .container{ grid-template-columns:1fr; }
+  .hero-visual{ height:380px; order:-1; }
+  .hero{ padding-top:48px; }
+}
+@media (max-width: 520px){
+  .hero-visual{ height:320px; }
+  .hv-profile{ width:230px; }
+  .hv-review{ width:180px; }
+  .hv-qr{ width:120px; }
+}
+
+/* trust line strip */
+.trustline-strip{
+  border-top:1px solid var(--color-border);
+  border-bottom:1px solid var(--color-border);
+  padding:22px 0;
+}
+.trustline-strip .container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px 40px;
+  color:var(--color-text-muted);
+  font-size:.92rem;
+  font-weight:500;
+}
+.trustline-strip span{ display:inline-flex; align-items:center; gap:8px; }
+.trustline-strip .icon{ width:16px; height:16px; color:var(--color-accent); }
+
+/* ============================================================
+   PROBLEM
+   ============================================================ */
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:20px;
+}
+.problem-card{
+  padding:24px;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.problem-card .icon-wrap{
+  width:38px; height:38px; border-radius:10px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.problem-card .icon-wrap .icon{ width:19px; height:19px; }
+.problem-card p{ margin:0; font-weight:500; color:var(--color-text); }
+.problem-outro{
+  margin-top:32px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.2rem;
+  color:var(--color-accent-dark);
+}
+@media (max-width:700px){ .problem-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
+.service-card{
+  padding:26px 22px;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  transition:border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.service-card:hover{ border-color:var(--color-border-strong); box-shadow:var(--shadow-sm); transform:translateY(-2px); }
+.service-card .icon-wrap{
+  width:42px; height:42px; border-radius:10px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+}
+.service-card .icon-wrap .icon{ width:21px; height:21px; }
+.service-card h3{ font-size:1.02rem; margin-bottom:6px; }
+.service-card p{ font-size:.9rem; color:var(--color-text-muted); margin:0; }
+@media (max-width:980px){ .services-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   AUDIENCES
+   ============================================================ */
+.audience-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+}
+.audience-card{
+  padding:22px;
+  border-radius:var(--radius-md);
+  background:var(--color-bg-alt);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.audience-card .icon-wrap{
+  width:44px; height:44px; border-radius:50%;
+  background:var(--color-bg); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  box-shadow:var(--shadow-sm);
+}
+.audience-card .icon-wrap .icon{ width:20px; height:20px; }
+.audience-card h3{ font-size:.98rem; margin-bottom:2px; }
+.audience-card p{ font-size:.86rem; color:var(--color-text-muted); margin:0; }
+@media (max-width:900px){ .audience-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:560px){ .audience-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:16px;
+  align-items:stretch;
+}
+.price-card{
+  display:flex;
+  flex-direction:column;
+  padding:26px 22px;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  position:relative;
+}
+.price-card.featured{
+  background:var(--color-accent-light);
+  border:1px solid var(--color-accent);
+  box-shadow:var(--shadow-md);
+}
+.price-badge{
+  position:absolute;
+  top:-13px; left:22px;
+  background:var(--color-accent);
+  color:#fff;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  padding:5px 12px;
+  border-radius:20px;
+}
+.price-name{ font-family:var(--font-display); font-weight:700; font-size:1rem; margin-bottom:10px; }
+.price-amount{ font-family:var(--font-display); font-weight:800; font-size:2rem; margin-bottom:2px; }
+.price-amount sup{ font-size:.9rem; font-weight:600; margin-right:2px; }
+.price-period{ font-size:.78rem; color:var(--color-text-soft); margin-bottom:18px; }
+.price-features{ flex:1; margin-bottom:20px; }
+.price-features li{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  font-size:.85rem;
+  color:var(--color-text-muted);
+  padding:6px 0;
+}
+.price-features .icon{ width:15px; height:15px; color:var(--color-accent); margin-top:3px; flex-shrink:0; }
+@media (max-width:1100px){ .pricing-grid{ grid-template-columns:repeat(3, 1fr); } }
+@media (max-width:700px){ .pricing-grid{ grid-template-columns:1fr; max-width:380px; margin:0 auto; } .price-card.featured{ order:-1; } }
+
+/* ============================================================
+   COMPARISON TABLE
+   ============================================================ */
+.compare-wrap{
+  overflow-x:auto;
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  -webkit-overflow-scrolling:touch;
+}
+table.compare{
+  border-collapse:collapse;
+  width:100%;
+  min-width:760px;
+  font-size:.88rem;
+}
+table.compare th, table.compare td{
+  padding:14px 16px;
+  text-align:center;
+  border-bottom:1px solid var(--color-border);
+}
+table.compare th:first-child, table.compare td:first-child{
+  text-align:left;
+  font-weight:500;
+  color:var(--color-text);
+  position:sticky;
+  left:0;
+  background:var(--color-bg);
+}
+table.compare thead th{
+  font-family:var(--font-display);
+  font-weight:700;
+  background:var(--color-bg-alt);
+  color:var(--color-text);
+}
+table.compare thead th:first-child{ background:var(--color-bg-alt); }
+table.compare thead th.featured-col{ color:var(--color-accent-dark); }
+table.compare tbody tr:last-child td{ border-bottom:none; }
+table.compare .icon{ width:16px; height:16px; color:var(--color-accent); }
+table.compare .dash{ color:var(--color-text-soft); }
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+  counter-reset:step;
+}
+.process-step{ position:relative; padding-top:8px; }
+.process-num{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:1.6rem;
+  color:var(--color-accent);
+  margin-bottom:12px;
+  display:block;
+}
+.process-step h3{ font-size:1.02rem; margin-bottom:6px; }
+.process-step p{ font-size:.9rem; color:var(--color-text-muted); margin:0; }
+.process-step:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  top:16px; right:-14px;
+  width:20px; height:1px;
+  background:var(--color-border-strong);
+  display:none;
+}
+@media (min-width:981px){ .process-step:not(:last-child)::after{ display:block; } }
+@media (max-width:980px){ .process-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:560px){ .process-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   ADD-ONS
+   ============================================================ */
+.addons-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:14px;
+}
+.addon-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:16px 18px;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  font-size:.88rem;
+}
+.addon-item .addon-name{ display:flex; align-items:center; gap:10px; color:var(--color-text); font-weight:500; }
+.addon-item .icon-wrap{
+  width:30px; height:30px; border-radius:8px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.addon-item .icon-wrap .icon{ width:15px; height:15px; }
+.addon-price{ font-weight:700; color:var(--color-text); white-space:nowrap; font-family:var(--font-display); }
+@media (max-width:980px){ .addons-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:560px){ .addons-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   TRUST / WHY US
+   ============================================================ */
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+.trust-item{
+  padding:26px;
+  border-radius:var(--radius-md);
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+}
+.trust-item .icon-wrap{
+  width:38px; height:38px; border-radius:10px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+}
+.trust-item .icon-wrap .icon{ width:19px; height:19px; }
+.trust-item h3{ font-size:1rem; margin-bottom:6px; }
+.trust-item p{ font-size:.9rem; color:var(--color-text-muted); margin:0; }
+@media (max-width:900px){ .trust-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-wrap{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:56px;
+  align-items:center;
+}
+.about-visual{
+  aspect-ratio:4/3;
+  border-radius:var(--radius-lg);
+  background:linear-gradient(160deg, var(--color-bg-dark), #1c2632);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.about-visual .mark{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:3.4rem;
+  color:rgba(255,255,255,.92);
+}
+.about-visual .mark .dot{ color:var(--color-accent); }
+.about-visual::before{
+  content:"";
+  position:absolute;
+  width:220px; height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(15,111,106,.5), transparent 70%);
+  top:-40px; right:-40px;
+}
+.about-text p{ color:var(--color-text-muted); font-size:1.05rem; }
+@media (max-width:900px){ .about-wrap{ grid-template-columns:1fr; } .about-visual{ aspect-ratio:16/9; } }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list{ max-width:760px; margin:0 auto; }
+.faq-item{
+  border-bottom:1px solid var(--color-border);
+}
+.faq-item summary{
+  list-style:none;
+  cursor:pointer;
+  padding:20px 4px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  font-weight:600;
+  font-size:1rem;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary .icon{ width:18px; height:18px; color:var(--color-text-soft); flex-shrink:0; transition:transform .2s ease; }
+.faq-item[open] summary .icon{ transform:rotate(180deg); }
+.faq-item .faq-answer{ padding:0 4px 20px 4px; color:var(--color-text-muted); font-size:.95rem; max-width:640px; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-wrap{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:48px;
+}
+.contact-info h2{ font-size:clamp(1.5rem, 3vw, 2rem); }
+.contact-info > p{ color:var(--color-text-muted); margin-bottom:28px; }
+.contact-channels{ display:flex; flex-direction:column; gap:14px; }
+.contact-channel{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  font-weight:500;
+  font-size:.95rem;
+  transition:border-color .15s ease, transform .15s ease;
+}
+.contact-channel:hover{ border-color:var(--color-accent); transform:translateX(2px); }
+.contact-channel .icon-wrap{
+  width:36px; height:36px; border-radius:9px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.contact-channel .icon-wrap .icon{ width:17px; height:17px; }
+.contact-channel small{ display:block; color:var(--color-text-soft); font-weight:400; font-size:.78rem; }
+
+.contact-form{
+  background:var(--color-bg-alt);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  padding:32px;
+}
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+.form-group{ margin-bottom:16px; }
+.form-group.full{ grid-column:1 / -1; }
+.form-group label{ display:block; font-size:.85rem; font-weight:600; margin-bottom:6px; }
+.form-group .optional{ font-weight:400; color:var(--color-text-soft); }
+.form-group input, .form-group select, .form-group textarea{
+  width:100%;
+  padding:11px 14px;
+  border:1px solid var(--color-border-strong);
+  border-radius:9px;
+  background:var(--color-bg);
+  color:var(--color-text);
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{
+  outline:none;
+  border-color:var(--color-accent);
+  box-shadow:0 0 0 3px var(--color-accent-light);
+}
+.form-group textarea{ resize:vertical; min-height:96px; }
+.form-error{ font-size:.78rem; color:#b3261e; margin-top:4px; display:none; }
+.form-group.has-error input, .form-group.has-error select, .form-group.has-error textarea{ border-color:#b3261e; }
+.form-group.has-error .form-error{ display:block; }
+.form-note{ font-size:.78rem; color:var(--color-text-soft); margin-top:14px; text-align:center; }
+.form-success{
+  display:none;
+  align-items:flex-start;
+  gap:10px;
+  background:var(--color-accent-light);
+  border:1px solid var(--color-accent);
+  color:var(--color-accent-dark);
+  padding:14px 16px;
+  border-radius:9px;
+  font-size:.9rem;
+  margin-bottom:16px;
+}
+.form-success.is-visible{ display:flex; }
+.form-success .icon{ width:18px; height:18px; margin-top:1px; flex-shrink:0; }
+
+@media (max-width:900px){ .contact-wrap{ grid-template-columns:1fr; } }
+@media (max-width:560px){ .form-row{ grid-template-columns:1fr; } .contact-form{ padding:22px; } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--color-bg-dark);
+  color:rgba(255,255,255,.7);
+  padding:64px 0 32px;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:32px;
+  padding-bottom:40px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.footer-brand{ font-family:var(--font-display); font-weight:800; font-size:1.15rem; color:#fff; margin-bottom:10px; }
+.footer-brand .dot{ color:var(--color-accent); }
+.footer-col h4{ color:#fff; font-family:var(--font-body); font-weight:600; font-size:.85rem; margin-bottom:14px; letter-spacing:.02em; text-transform:uppercase; opacity:.7; }
+.footer-col ul li{ margin-bottom:10px; }
+.footer-col ul li a{ font-size:.9rem; transition:color .15s ease; }
+.footer-col ul li a:hover{ color:#fff; }
+.footer-col .contact-line{ display:flex; align-items:center; gap:8px; font-size:.9rem; margin-bottom:10px; }
+.footer-col .contact-line .icon{ width:15px; height:15px; }
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  padding-top:24px;
+  font-size:.82rem;
+}
+.footer-bottom a{ opacity:.7; }
+.footer-bottom a:hover{ opacity:1; }
+.footer-legal{ display:flex; gap:20px; flex-wrap:wrap; }
+@media (max-width:900px){ .footer-top{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .footer-top{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   MOBILE STICKY CTA
+   ============================================================ */
+.mobile-cta{
+  position:fixed;
+  left:16px; right:16px; bottom:16px;
+  z-index:90;
+  display:none;
+}
+.mobile-cta .btn{
+  width:100%;
+  box-shadow:var(--shadow-lg);
+}
+@media (max-width:760px){ .mobile-cta{ display:block; } body{ padding-bottom:76px; } }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ICON SPRITE – ein einziges, konsistentes Icon-Set (Strichstil)
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.5 3.5A10.9 10.9 0 0 0 12.1 0C6 0 1 5 1 11.1c0 2 .5 3.8 1.4 5.5L1 22l5.6-1.5a11 11 0 0 0 5.5 1.4h.1c6 0 11-5 11-11.1 0-3-1.1-5.7-3.2-7.8Z" style="fill:none"/><path d="M9 8c.1-.3.5-.3.7-.3h.5c.2 0 .4 0 .5.4l.7 1.8c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6.4.7 1.5 1.9 2.4 2.3.2.1.4.1.5-.1l.5-.6c.1-.2.3-.2.6-.1l1.6.8c.2.1.3.2.4.4v.6c0 .5-.6 1.1-1.1 1.2-1 .2-2.2-.1-3.9-1.4C9.9 12.9 8.6 11 8.4 10c-.2-.7 0-1.5.6-2Z"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><line x1="14" y1="14" x2="14" y2="21"/><line x1="21" y1="14" x2="21" y2="14"/><line x1="17.5" y1="14" x2="17.5" y2="17.5"/><line x1="21" y1="17.5" x2="17.5" y2="17.5"/><line x1="21" y1="21" x2="17.5" y2="21"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.1 8.6 22 9.3 17 14.1 18.2 21 12 17.6 5.8 21 7 14.1 2 9.3 8.9 8.6"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.1" y2="15.9"/><line x1="14.5" y1="14.5" x2="20" y2="20"/><line x1="8.1" y1="8.1" x2="12" y2="12"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5"/><path d="M5 4 4 5l2.5 2.5L4 10l1 1 2.5-2.5L10 11l1-1-2.5-2.5L11 5l-1-1-2.5 2.5L5 4Z"/><path d="M19 20l1-1-2.5-2.5L20 14l-1-1-2.5 2.5L14 13l-1 1 2.5 2.5L13 19l1 1 2.5-2.5L19 20Z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.1L2 18.5 5.5 22l7-7.1a4 4 0 0 0 5.1-5.6l-2.6 2.6-2.8-.9-.9-2.8Z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1.1"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<header class="nav" id="site-nav">
+  <div class="container">
+    <a href="#top" class="nav-logo">Klarpunkt<span class="dot">.</span></a>
+    <nav class="nav-links" aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#pakete">Pakete</a>
+      <a href="#ablauf">So funktioniert's</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#kontakt" class="btn btn-primary btn-sm desktop-only">Kontakt aufnehmen</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-mobile-panel">
+        <svg class="icon" id="nav-toggle-icon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-mobile-panel" id="nav-mobile-panel">
+  <a href="#leistungen">Leistungen</a>
+  <a href="#pakete">Pakete</a>
+  <a href="#ablauf">So funktioniert's</a>
+  <a href="#faq">FAQ</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="#kontakt" class="btn btn-primary btn-block">Kontakt aufnehmen</a>
+</div>
+
+<main id="top">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <h1>Digitale Lösungen für lokale Unternehmen.</h1>
+        <p class="hero-sub">Wir helfen kleinen Unternehmen dabei, online professioneller aufzutreten, leichter gefunden zu werden und ihren Kunden den Kontakt einfacher zu machen.</p>
+        <div class="hero-ctas">
+          <a href="#pakete" class="btn btn-primary">Pakete ansehen <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <a href="#kontakt" class="btn btn-secondary">Unverbindlich anfragen</a>
+        </div>
+        <div class="hero-trustline">
+          <span><svg class="icon"><use href="#i-check"/></svg>Einfach eingerichtet</span>
+          <span><svg class="icon"><use href="#i-check"/></svg>Transparent kalkuliert</span>
+          <span><svg class="icon"><use href="#i-check"/></svg>Für lokale Unternehmen</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hv-blob"></div>
+        <div class="hv-card hv-profile">
+          <div class="hv-row">
+            <div class="hv-avatar">SB</div>
+            <div class="hv-lines">
+              <div class="hv-line w60"></div>
+              <div class="hv-line w40"></div>
+            </div>
+          </div>
+          <div class="hv-chip-row">
+            <span class="hv-chip"><svg class="icon"><use href="#i-map-pin"/></svg>Google</span>
+            <span class="hv-chip"><svg class="icon"><use href="#i-instagram"/></svg>Instagram</span>
+            <span class="hv-chip"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</span>
+          </div>
+        </div>
+        <div class="hv-card hv-review">
+          <div class="hv-stars">
+            <svg class="icon"><use href="#i-star"/></svg>
+            <svg class="icon"><use href="#i-star"/></svg>
+            <svg class="icon"><use href="#i-star"/></svg>
+            <svg class="icon"><use href="#i-star"/></svg>
+            <svg class="icon"><use href="#i-star"/></svg>
+          </div>
+          <div class="hv-line w60"></div>
+          <div class="hv-line w40"></div>
+        </div>
+        <div class="hv-card hv-qr">
+          <div class="hv-qr-grid">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <small>Bewertung per Scan</small>
+        </div>
+        <div class="hv-card hv-insta">
+          <svg class="icon"><use href="#i-instagram"/></svg>
+          <div>
+            <strong>@ihrunternehmen</strong>
+            <small>Profil verbunden</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- trust strip -->
+  <div class="trustline-strip">
+    <div class="container">
+      <span><svg class="icon"><use href="#i-shield"/></svg>Ohne technische Vorkenntnisse</span>
+      <span><svg class="icon"><use href="#i-clock"/></svg>Einrichtung in wenigen Tagen</span>
+      <span><svg class="icon"><use href="#i-zap"/></svg>Feste, transparente Preise</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PROBLEM
+       ============================================================ -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Ausgangslage</span>
+        <h2>Viele kleine Unternehmen haben online mehr Potenzial, als sie nutzen.</h2>
+        <p>Das Angebot stimmt, die Qualität stimmt – aber online kommt davon oft zu wenig an.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-map-pin"/></svg></div>
+          <p>Kunden finden wichtige Informationen nicht sofort.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-link"/></svg></div>
+          <p>Instagram, Google, WhatsApp und Website sind nicht miteinander verbunden.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></div>
+          <p>Bewertungen und Kontaktmöglichkeiten sind unnötig kompliziert.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></div>
+          <p>Der digitale Auftritt wirkt nicht so professionell wie das eigentliche Unternehmen.</p>
+        </div>
+      </div>
+      <p class="problem-outro reveal">Genau dabei helfen wir.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LEISTUNGEN
+       ============================================================ -->
+  <section class="section section-alt" id="leistungen">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Was wir für Ihr Unternehmen einrichten</h2>
+        <p>Acht Bausteine, die zusammen einen klaren, gut auffindbaren digitalen Auftritt ergeben.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-map-pin"/></svg></div>
+          <h3>Google Business</h3>
+          <p>Optimierung wichtiger Unternehmensinformationen und bessere Struktur des Google-Auftritts.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-card"/></svg></div>
+          <h3>Digitale Visitenkarten</h3>
+          <p>Kontaktinformationen, Social Media, Website und weitere Links übersichtlich digital zusammengefasst.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></div>
+          <h3>Google Reviews</h3>
+          <p>Direkter QR-Code bzw. Link, über den Kunden das Unternehmen einfacher bewerten können.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-instagram"/></svg></div>
+          <h3>Instagram</h3>
+          <p>Optimierung des Profils und einfache Verbindung zu anderen Kontaktmöglichkeiten.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-qr"/></svg></div>
+          <h3>QR-Lösungen</h3>
+          <p>QR-Codes für Bewertungen, Speisekarten, Social Media, Kontakt und weitere Inhalte.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-image"/></svg></div>
+          <h3>Digitale Speisekarten</h3>
+          <p>Mobile Darstellung von Speisen, Preisen oder Dienstleistungen.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-link"/></svg></div>
+          <h3>Link-Seiten</h3>
+          <p>Eine zentrale Seite mit allen wichtigen Links des Unternehmens.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></div>
+          <h3>Social-Media-Vorlagen</h3>
+          <p>Einfache, professionelle Vorlagen für Posts und Stories.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZIELGRUPPEN
+       ============================================================ -->
+  <section class="section" id="zielgruppen">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Für wen</span>
+        <h2>Für kleine Unternehmen, die digital professioneller auftreten möchten.</h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-scissors"/></svg></div>
+          <div><h3>Friseure &amp; Barbershops</h3><p>Termine und Bewertungen einfacher zugänglich machen.</p></div>
+        </div>
+        <div class="audience-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-coffee"/></svg></div>
+          <div><h3>Cafés &amp; Restaurants</h3><p>Speisekarte, Standort und Kontakt an einem Ort.</p></div>
+        </div>
+        <div class="audience-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-sparkles"/></svg></div>
+          <div><h3>Beauty &amp; Nagelstudios</h3><p>Instagram und Buchung sichtbar verbinden.</p></div>
+        </div>
+        <div class="audience-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-dumbbell"/></svg></div>
+          <div><h3>Fitness &amp; Sport</h3><p>Angebote und Kontakt klar kommunizieren.</p></div>
+        </div>
+        <div class="audience-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-bag"/></svg></div>
+          <div><h3>Kleine Geschäfte</h3><p>Öffnungszeiten und Sortiment leicht auffindbar.</p></div>
+        </div>
+        <div class="audience-card reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-wrench"/></svg></div>
+          <div><h3>Lokale Dienstleister</h3><p>Anfragen unkompliziert entgegennehmen.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PAKETE
+       ============================================================ -->
+  <section class="section section-alt" id="pakete">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Pakete</span>
+        <h2>Einfach. Transparent. Ohne unnötige Pakete.</h2>
+        <p>Fünf klar abgegrenzte Pakete – jedes davon deckt einen konkreten Bedarf ab.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="price-card reveal">
+          <div class="price-name">Starter</div>
+          <div class="price-amount"><sup>€</sup>19</div>
+          <div class="price-period">einmalig</div>
+          <ul class="price-features">
+            <li><svg class="icon"><use href="#i-check"/></svg>Google-Business-Profil Check</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google-Review-QR-Code</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Digitale Visitenkarte</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Wichtige Kontaktdaten digital zusammengefasst</li>
+          </ul>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="Starter (€19)">Starter wählen</button>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-name">Social</div>
+          <div class="price-amount"><sup>€</sup>29</div>
+          <div class="price-period">einmalig</div>
+          <ul class="price-features">
+            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Starter</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Instagram-Profil optimieren</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Instagram-QR-Code</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Direkter Instagram-Link</li>
+          </ul>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="Social (€29)">Social wählen</button>
+        </div>
+
+        <div class="price-card featured reveal">
+          <span class="price-badge">Beliebteste Wahl</span>
+          <div class="price-name">Business</div>
+          <div class="price-amount"><sup>€</sup>49</div>
+          <div class="price-period">einmalig</div>
+          <ul class="price-features">
+            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Social</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Persönliche Link-Seite</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>WhatsApp-Kontakt</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google Maps</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Termin-/Kontakt-Link</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google-Bewertungslink</li>
+          </ul>
+          <button class="btn btn-primary btn-block js-pick-package" data-package="Business (€49)">Business wählen</button>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-name">Business Plus</div>
+          <div class="price-amount"><sup>€</sup>69</div>
+          <div class="price-period">einmalig</div>
+          <ul class="price-features">
+            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Business</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Digitale Speisekarte oder Preisliste</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>QR-Code für Speisekarte/Preisliste</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Zusätzlicher Service- oder Angebotslink</li>
+          </ul>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="Business Plus (€69)">Business Plus wählen</button>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-name">Complete</div>
+          <div class="price-amount"><sup>€</sup>89</div>
+          <div class="price-period">einmalig</div>
+          <ul class="price-features">
+            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Business Plus</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Bis zu 3 digitale Mitarbeiter-Visitenkarten</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>5 Social-Media-Vorlagen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Einrichtung aller wichtigen Links</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Optimierung für Smartphone-Nutzung</li>
+          </ul>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="Complete (€89)">Complete wählen</button>
+        </div>
+
+      </div>
+
+      <!-- Vergleichstabelle -->
+      <div style="margin-top:64px;">
+        <div class="section-head center reveal">
+          <h2 style="font-size:1.4rem;">Was ist im jeweiligen Paket enthalten?</h2>
+        </div>
+        <div class="compare-wrap reveal">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th>Leistung</th>
+                <th>Starter</th>
+                <th>Social</th>
+                <th class="featured-col">Business</th>
+                <th>Business&nbsp;Plus</th>
+                <th>Complete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Google-Business-Profil Check</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Google-Review-QR-Code</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Digitale Visitenkarte</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Instagram-Optimierung &amp; QR-Code</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Persönliche Link-Seite</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>WhatsApp-Kontakt &amp; Google Maps</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Digitale Speisekarte / Preisliste</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Mitarbeiter-Visitenkarten (bis zu 3)</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Social-Media-Vorlagen</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Preis</td><td>€19</td><td>€29</td><td>€49</td><td>€69</td><td>€89</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SO FUNKTIONIERT'S
+       ============================================================ -->
+  <section class="section" id="ablauf">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Ablauf</span>
+        <h2>So funktioniert es</h2>
+        <p>Vier Schritte, um die Sie sich kaum kümmern müssen.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <span class="process-num">01</span>
+          <h3>Paket auswählen</h3>
+          <p>Sie entscheiden sich für das Paket, das zu Ihrem Unternehmen passt.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-num">02</span>
+          <h3>Informationen senden</h3>
+          <p>Sie schicken uns die nötigen Angaben zu Ihrem Unternehmen.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-num">03</span>
+          <h3>Wir richten alles ein</h3>
+          <p>Wir übernehmen die technische Einrichtung Ihrer digitalen Lösungen.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-num">04</span>
+          <h3>Fertig</h3>
+          <p>Sie erhalten Ihre digitalen Lösungen einsatzbereit zurück.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZUSATZLEISTUNGEN
+       ============================================================ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Zusatzleistungen</span>
+        <h2>Noch mehr für Ihr Unternehmen</h2>
+        <p>Einzeln buchbar – unabhängig vom gewählten Paket.</p>
+      </div>
+      <div class="addons-grid">
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></span>Google-Review-NFC-Sticker</span><span class="addon-price">€9,90</span></div>
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></span>Google-Review-NFC-Ständer</span><span class="addon-price">€14,90</span></div>
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-instagram"/></svg></span>Instagram-NFC-Sticker</span><span class="addon-price">€9,90</span></div>
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-card"/></svg></span>Payment-Sticker</span><span class="addon-price">€5,90</span></div>
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-card"/></svg></span>Zusätzliche digitale Visitenkarte</span><span class="addon-price">€9,90</span></div>
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></span>5 zusätzliche Social-Media-Vorlagen</span><span class="addon-price">€10</span></div>
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-qr"/></svg></span>Zusätzlicher QR-Code</span><span class="addon-price">€3</span></div>
+        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-refresh"/></svg></span>Monatliche kleine Änderungen</span><span class="addon-price">€15/Monat</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VERTRAUEN
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Warum Klarpunkt</span>
+        <h2>Einfach gemacht. Klar erklärt.</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
+          <h3>Transparente Preise</h3>
+          <p>Feste Paketpreise ohne versteckte Kosten oder Folgeverträge.</p>
+        </div>
+        <div class="trust-item reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
+          <h3>Keine unnötigen Fachbegriffe</h3>
+          <p>Wir erklären, was wir tun – verständlich und ohne Umwege.</p>
+        </div>
+        <div class="trust-item reveal">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
+          <h3>Auf kleine Unternehmen zugeschnitten</h3>
+          <p>Unsere Pakete sind für den tatsächlichen Bedarf lokaler Betriebe gemacht.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ÜBER UNS
+       ============================================================ -->
+  <section class="section section-alt" id="ueber-uns">
+    <div class="container about-wrap">
+      <div class="about-visual reveal">
+        <div class="mark">K<span class="dot">.</span></div>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">Über uns</span>
+        <h2>Wer hinter Klarpunkt steht</h2>
+        <p>Wir konzentrieren uns auf einfache digitale Lösungen, die kleine Unternehmen wirklich nutzen können. Statt komplizierter Systeme bieten wir überschaubare Pakete mit klaren Leistungen und transparenten Preisen.</p>
+        <p>Unser Ziel ist nicht, möglichst viel zu verkaufen – sondern genau das einzurichten, was für Ihren Auftritt wirklich sinnvoll ist.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Häufige Fragen</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>Für welche Unternehmen sind die Pakete geeignet?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Für kleine und lokale Unternehmen wie Friseure, Cafés, Restaurants, Studios, Fitnessstudios, Geschäfte und Dienstleister – überall dort, wo Kunden online nach Informationen, Bewertungen oder Kontaktmöglichkeiten suchen.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Wie lange dauert die Einrichtung?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Je nach Paket meist wenige Werktage, nachdem uns alle nötigen Informationen vorliegen.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Muss ich technische Kenntnisse haben?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Nein. Wir übernehmen die technische Einrichtung vollständig. Sie erhalten am Ende fertige, einsatzbereite Lösungen.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Was muss ich bereitstellen?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Im Wesentlichen Ihre Unternehmensdaten, Kontaktinformationen und – je nach Paket – Inhalte wie Speisekarte oder Preisliste. Genaue Details erhalten Sie nach Ihrer Anfrage.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Kann ich später Änderungen vornehmen lassen?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Ja. Kleine Änderungen können Sie über die Zusatzleistung „Monatliche kleine Änderungen" laufend buchen.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Kann ich einzelne Leistungen zusätzlich buchen?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Ja, viele Leistungen sind auch einzeln als Zusatzleistung verfügbar – unabhängig vom gewählten Paket.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Erhalte ich eine richtige Website?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Unsere Pakete konzentrieren sich bewusst auf einfache digitale Lösungen. Eine umfangreiche individuelle Website ist nicht Bestandteil der Standardpakete.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Kann ich ein Paket später erweitern?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Ja. Sie können jederzeit auf ein größeres Paket wechseln oder einzelne Zusatzleistungen buchen.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       KONTAKT
+       ============================================================ -->
+  <section class="section section-alt" id="kontakt">
+    <div class="container contact-wrap">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Sie möchten starten?</h2>
+        <p>Wählen Sie Ihr Paket oder senden Sie uns eine unverbindliche Anfrage. Wir melden uns anschließend mit den nächsten Schritten.</p>
+        <div class="contact-channels">
+          <a class="contact-channel" href="mailto:hallo@klarpunkt.at">
+            <span class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></span>
+            <span>E-Mail<br><small>hallo@klarpunkt.at</small></span>
+          </a>
+          <a class="contact-channel" href="https://wa.me/436601234567" target="_blank" rel="noopener">
+            <span class="icon-wrap"><svg class="icon"><use href="#i-whatsapp"/></svg></span>
+            <span>WhatsApp<br><small>+43 660 123 4567</small></span>
+          </a>
+          <a class="contact-channel" href="#kontaktformular">
+            <span class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></span>
+            <span>Kontaktformular<br><small>unten ausfüllen – unter 60 Sekunden</small></span>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="kontaktformular" novalidate>
+        <div class="form-success" id="form-success">
+          <svg class="icon"><use href="#i-check"/></svg>
+          <span>Ihre E-Mail-App öffnet sich mit der vorausgefüllten Anfrage. Falls nicht, schreiben Sie uns direkt an <strong>hallo@klarpunkt.at</strong>.</span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" required autocomplete="name">
+            <span class="form-error">Bitte geben Sie Ihren Namen an.</span>
+          </div>
+          <div class="form-group">
+            <label for="f-company">Unternehmen</label>
+            <input type="text" id="f-company" name="company" required autocomplete="organization">
+            <span class="form-error">Bitte geben Sie Ihr Unternehmen an.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-email">E-Mail</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email">
+            <span class="form-error">Bitte geben Sie eine gültige E-Mail-Adresse an.</span>
+          </div>
+          <div class="form-group">
+            <label for="f-phone">Telefonnummer <span class="optional">(optional)</span></label>
+            <input type="tel" id="f-phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-package">Gewünschtes Paket</label>
+          <select id="f-package" name="package" required>
+            <option value="">Bitte wählen</option>
+            <option>Starter (€19)</option>
+            <option>Social (€29)</option>
+            <option selected>Business (€49)</option>
+            <option>Business Plus (€69)</option>
+            <option>Complete (€89)</option>
+            <option>Noch unsicher</option>
+          </select>
+          <span class="form-error">Bitte wählen Sie ein Paket.</span>
+        </div>
+        <div class="form-group">
+          <label for="f-message">Nachricht</label>
+          <textarea id="f-message" name="message" placeholder="Kurz zu Ihrem Unternehmen und was Sie sich wünschen ..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Anfrage senden</button>
+        <p class="form-note">Mit dem Absenden öffnet sich Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht an uns.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <div class="footer-brand">Klarpunkt<span class="dot">.</span></div>
+        <p style="font-size:.9rem; max-width:260px;">Digitale Lösungen für lokale Unternehmen.</p>
+        <div class="contact-line"><svg class="icon"><use href="#i-instagram"/></svg><a href="https://instagram.com/klarpunkt.at" target="_blank" rel="noopener">@klarpunkt.at</a></div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#pakete">Pakete</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <div class="contact-line"><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:hallo@klarpunkt.at">hallo@klarpunkt.at</a></div>
+        <div class="contact-line"><svg class="icon"><use href="#i-whatsapp"/></svg><a href="https://wa.me/436601234567" target="_blank" rel="noopener">+43 660 123 4567</a></div>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Klarpunkt. Alle Rechte vorbehalten.</span>
+      <div class="footer-legal">
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="#kontaktformular" class="btn btn-primary">Kontakt aufnehmen</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // Jahr im Footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sticky-Nav Schatten beim Scrollen
+  var nav = document.getElementById('site-nav');
+  function onScroll(){
+    nav.classList.toggle('is-scrolled', window.scrollY > 4);
+  }
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // Mobiles Menü
+  var toggle = document.getElementById('nav-toggle');
+  var toggleIcon = document.getElementById('nav-toggle-icon');
+  var panel = document.getElementById('nav-mobile-panel');
+  function closeMenu(){
+    panel.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggleIcon.innerHTML = '<use href="#i-menu"/>';
+  }
+  toggle.addEventListener('click', function(){
+    var isOpen = panel.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggleIcon.innerHTML = isOpen ? '<use href="#i-x"/>' : '<use href="#i-menu"/>';
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Paket-Auswahl -> Formular vorbefüllen & scrollen
+  var packageSelect = document.getElementById('f-package');
+  document.querySelectorAll('.js-pick-package').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pkg = btn.getAttribute('data-package');
+      var match = Array.from(packageSelect.options).find(function(o){ return o.value === pkg; });
+      if (match) packageSelect.value = pkg;
+      document.getElementById('kontaktformular').scrollIntoView({ behavior:'smooth', block:'start' });
+      setTimeout(function(){ document.getElementById('f-name').focus(); }, 500);
+    });
+  });
+
+  // Formular-Validierung + mailto-Versand (statische Seite ohne Backend)
+  var form = document.getElementById('kontaktformular');
+  var successBox = document.getElementById('form-success');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var valid = true;
+    var fields = [
+      { el: document.getElementById('f-name'), test: function(v){ return v.trim().length > 0; } },
+      { el: document.getElementById('f-company'), test: function(v){ return v.trim().length > 0; } },
+      { el: document.getElementById('f-email'), test: function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
+      { el: document.getElementById('f-package'), test: function(v){ return v.trim().length > 0; } }
+    ];
+    fields.forEach(function(f){
+      var group = f.el.closest('.form-group');
+      var ok = f.test(f.el.value);
+      group.classList.toggle('has-error', !ok);
+      if (!ok) valid = false;
+    });
+    if (!valid) return;
+
+    var name = document.getElementById('f-name').value.trim();
+    var company = document.getElementById('f-company').value.trim();
+    var email = document.getElementById('f-email').value.trim();
+    var phone = document.getElementById('f-phone').value.trim();
+    var pkg = document.getElementById('f-package').value.trim();
+    var message = document.getElementById('f-message').value.trim();
+
+    var subject = 'Anfrage: ' + pkg + ' – ' + company;
+    var bodyLines = [
+      'Name: ' + name,
+      'Unternehmen: ' + company,
+      'E-Mail: ' + email,
+      phone ? ('Telefon: ' + phone) : null,
+      'Gewünschtes Paket: ' + pkg,
+      '',
+      'Nachricht:',
+      message || '(keine Angabe)'
+    ].filter(Boolean);
+    var mailto = 'mailto:hallo@klarpunkt.at?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+    successBox.classList.add('is-visible');
+    window.location.href = mailto;
+  });
+
+  // Scroll-Reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
