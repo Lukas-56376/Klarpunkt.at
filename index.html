@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUKIO – Digitale Lösungen für lokale Unternehmen</title>
-<meta name="description" content="LUKIO richtet Google-Profil, digitale Visitenkarte, QR-Codes und Social-Media-Auftritt für kleine, lokale Unternehmen ein – transparent, einfach, ohne technischen Aufwand.">
+<title>LUKIO – Digitale Lösungen für lokale Unternehmen in Wien</title>
+<meta name="description" content="LUKIO bietet digitale Lösungen für lokale Unternehmen in Wien: Google Review QR-Codes, NFC-Sticker, digitale Visitenkarten, Instagram QR-Codes, Link-Seiten und digitale Speisekarten.">
+<meta name="author" content="LUKIO">
 <meta name="theme-color" content="#0f6f6a">
+<link rel="canonical" href="https://lukas-56376.github.io/Klarpunkt.at/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="LUKIO – Digitale Lösungen für lokale Unternehmen">
-<meta property="og:description" content="Google-Profil, digitale Visitenkarte, QR-Codes und Social Media – professionell eingerichtet für Friseure, Cafés, Studios und lokale Dienstleister.">
+<meta property="og:description" content="QR-Codes, NFC-Lösungen, digitale Visitenkarten und weitere digitale Lösungen für lokale Unternehmen in Wien.">
+<meta property="og:url" content="https://lukas-56376.github.io/Klarpunkt.at/">
 <meta property="og:locale" content="de_AT">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -451,6 +454,86 @@ input, select, textarea{ font-family:inherit; font-size:1rem; }
 @media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
 
 /* ============================================================
+   LEISTUNGEN – DETAILKARTEN (Preis, Enthalten, Extras)
+   ============================================================ */
+.service-detail-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:20px;
+}
+.service-detail-card{
+  padding:26px;
+  background:var(--color-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  display:flex;
+  flex-direction:column;
+}
+.sd-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.sd-title{ display:flex; align-items:center; gap:12px; }
+.sd-title .icon-wrap{
+  width:40px; height:40px; border-radius:10px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.sd-title .icon-wrap .icon{ width:20px; height:20px; }
+.sd-title h3{ font-size:1.02rem; margin:0; }
+.sd-price{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:1.15rem;
+  color:var(--color-accent-dark);
+  white-space:nowrap;
+}
+.sd-desc{ font-size:.9rem; color:var(--color-text-muted); margin-bottom:14px; }
+.sd-included{ margin-bottom:12px; }
+.sd-included li{
+  display:flex;
+  align-items:flex-start;
+  gap:7px;
+  font-size:.84rem;
+  color:var(--color-text);
+  padding:3px 0;
+}
+.sd-included .icon{ width:13px; height:13px; color:var(--color-accent); margin-top:3px; flex-shrink:0; }
+.sd-note{
+  font-size:.78rem;
+  color:var(--color-text-soft);
+  font-style:italic;
+  margin-bottom:12px;
+}
+.sd-extras{
+  margin-top:auto;
+  padding-top:14px;
+  border-top:1px solid var(--color-border);
+}
+.sd-extras-label{
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--color-text-soft);
+  margin-bottom:8px;
+}
+.sd-extra-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.84rem;
+  color:var(--color-text-muted);
+  padding:4px 0;
+}
+.sd-extra-row strong{ color:var(--color-accent-dark); font-weight:700; }
+.sd-extras.none{ color:var(--color-text-soft); font-size:.82rem; }
+@media (max-width:900px){ .service-detail-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
    AUDIENCES
    ============================================================ */
 .audience-grid{
@@ -516,7 +599,9 @@ input, select, textarea{ font-family:inherit; font-size:1rem; }
 .price-name{ font-family:var(--font-display); font-weight:700; font-size:1rem; margin-bottom:10px; }
 .price-amount{ font-family:var(--font-display); font-weight:800; font-size:2rem; margin-bottom:2px; }
 .price-amount sup{ font-size:.9rem; font-weight:600; margin-right:2px; }
-.price-period{ font-size:.78rem; color:var(--color-text-soft); margin-bottom:18px; }
+.price-period{ font-size:.78rem; color:var(--color-text-soft); margin-bottom:10px; }
+.price-savings{ font-size:.78rem; color:var(--color-text-soft); margin-bottom:18px; line-height:1.5; }
+.price-savings strong{ color:var(--color-accent-dark); font-weight:700; }
 .price-features{ flex:1; margin-bottom:20px; }
 .price-features li{
   display:flex;
@@ -834,6 +919,25 @@ table.compare .dash{ color:var(--color-text-soft); }
 @media (max-width:900px){ .demo-wrap{ grid-template-columns:1fr; } }
 
 /* ============================================================
+   ECHTE PROJEKTE (PLATZHALTER)
+   ============================================================ */
+.projects-placeholder{
+  text-align:center;
+  padding:64px 32px;
+  border:1px dashed var(--color-border-strong);
+  border-radius:var(--radius-lg);
+  color:var(--color-text-muted);
+}
+.projects-placeholder .icon-wrap{
+  width:44px; height:44px; border-radius:12px;
+  background:var(--color-accent-light); color:var(--color-accent);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 16px;
+}
+.projects-placeholder .icon-wrap .icon{ width:21px; height:21px; }
+.projects-placeholder p{ margin:0; font-size:.98rem; }
+
+/* ============================================================
    TRUST / WHY US
    ============================================================ */
 .trust-grid{
@@ -1095,13 +1199,14 @@ table.compare .dash{ color:var(--color-text-soft); }
   <div class="container">
     <a href="#top" class="nav-logo">LUKIO<span class="dot">.</span></a>
     <nav class="nav-links" aria-label="Hauptnavigation">
+      <a href="#top">Startseite</a>
       <a href="#leistungen">Leistungen</a>
       <a href="#pakete">Pakete</a>
       <a href="#ablauf">So funktioniert's</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
-      <a href="#kontakt" class="btn btn-primary btn-sm desktop-only">Kontakt aufnehmen</a>
+      <a href="#kontakt" class="btn btn-primary btn-sm desktop-only">Unverbindlich anfragen</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-mobile-panel">
         <svg class="icon" id="nav-toggle-icon"><use href="#i-menu"/></svg>
       </button>
@@ -1110,12 +1215,13 @@ table.compare .dash{ color:var(--color-text-soft); }
 </header>
 
 <div class="nav-mobile-panel" id="nav-mobile-panel">
+  <a href="#top">Startseite</a>
   <a href="#leistungen">Leistungen</a>
   <a href="#pakete">Pakete</a>
   <a href="#ablauf">So funktioniert's</a>
   <a href="#faq">FAQ</a>
   <a href="#kontakt">Kontakt</a>
-  <a href="#kontakt" class="btn btn-primary btn-block">Kontakt aufnehmen</a>
+  <a href="#kontakt" class="btn btn-primary btn-block">Unverbindlich anfragen</a>
 </div>
 
 <main id="top">
@@ -1126,15 +1232,15 @@ table.compare .dash{ color:var(--color-text-soft); }
   <section class="hero">
     <div class="container">
       <div class="hero-copy">
-        <h1>Digitale Lösungen für lokale Unternehmen.</h1>
-        <p class="hero-sub">Wir helfen kleinen Unternehmen dabei, online professioneller aufzutreten, leichter gefunden zu werden und ihren Kunden den Kontakt einfacher zu machen.</p>
+        <h1>Digitale Lösungen für lokale Unternehmen in Wien</h1>
+        <p class="hero-sub">LUKIO hilft lokalen Unternehmen dabei, online professioneller aufzutreten und wichtige Informationen für ihre Kunden einfacher zugänglich zu machen.</p>
         <div class="hero-ctas">
-          <a href="#pakete" class="btn btn-primary">Pakete ansehen <svg class="icon"><use href="#i-arrow-right"/></svg></a>
-          <a href="#kontakt" class="btn btn-secondary">Unverbindlich anfragen</a>
+          <a href="#leistungen" class="btn btn-primary">Leistungen entdecken <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <a href="#pakete" class="btn btn-secondary">Pakete ansehen</a>
         </div>
         <div class="hero-trustline">
+          <span><svg class="icon"><use href="#i-check"/></svg>Einmalige Preise</span>
           <span><svg class="icon"><use href="#i-check"/></svg>Einfach eingerichtet</span>
-          <span><svg class="icon"><use href="#i-check"/></svg>Transparent kalkuliert</span>
           <span><svg class="icon"><use href="#i-check"/></svg>Für lokale Unternehmen</span>
         </div>
       </div>
@@ -1233,50 +1339,150 @@ table.compare .dash{ color:var(--color-text-soft); }
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Leistungen</span>
-        <h2>Was wir für Ihr Unternehmen einrichten</h2>
-        <p>Acht Bausteine, die zusammen einen klaren, gut auffindbaren digitalen Auftritt ergeben.</p>
+        <h2>Unsere Leistungen</h2>
+        <p>Wählen Sie genau die Lösung, die Ihr Unternehmen benötigt.</p>
       </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-map-pin"/></svg></div>
-          <h3>Google Business</h3>
-          <p>Optimierung wichtiger Unternehmensinformationen und bessere Struktur des Google-Auftritts.</p>
+      <div class="service-detail-grid">
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-map-pin"/></svg></span><h3>Google-Business-Profil Check</h3></div>
+            <div class="sd-price">15&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Wir überprüfen das Google-Business-Profil und geben verständliches Feedback dazu, was bereits gut ist und wo Verbesserungen möglich sind.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>Profil überprüfen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Wichtige Informationen kontrollieren</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Auffälligkeiten erkennen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Verbesserungsvorschläge &amp; verständliches Feedback</li>
+          </ul>
+          <p class="sd-note">Dies ist ein Check und Feedback – keine Garantie für bessere Rankings, mehr Bewertungen oder mehr Kunden.</p>
+          <div class="sd-extras none"><span class="sd-extras-label">Extras</span>Keine</div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-card"/></svg></div>
-          <h3>Digitale Visitenkarten</h3>
-          <p>Kontaktinformationen, Social Media, Website und weitere Links übersichtlich digital zusammengefasst.</p>
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></span><h3>Google Review QR-Code</h3></div>
+            <div class="sd-price">5&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Ein QR-Code, der direkt zur Google-Bewertungsseite des Unternehmens führt.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>QR-Code erstellen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Gewünschte Bewertungsseite verknüpfen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Fertigen QR-Code bereitstellen</li>
+          </ul>
+          <p class="sd-note">LUKIO erstellt keine Bewertungen und garantiert keine Bewertungen.</p>
+          <div class="sd-extras">
+            <div class="sd-extras-label">Passende Extras</div>
+            <div class="sd-extra-row"><span>NFC &amp; QR-Code Sticker</span><strong>+12&nbsp;€</strong></div>
+            <div class="sd-extra-row"><span>NFC &amp; QR-Code Aufsteller</span><strong>+16&nbsp;€</strong></div>
+          </div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></div>
-          <h3>Google Reviews</h3>
-          <p>Direkter QR-Code bzw. Link, über den Kunden das Unternehmen einfacher bewerten können.</p>
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-card"/></svg></span><h3>Digitale Mitarbeiter-Visitenkarte</h3></div>
+            <div class="sd-price">8&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Eine einfache digitale Visitenkarte für einen Mitarbeiter – z. B. Name, Position, Telefon, WhatsApp, Instagram, E-Mail, Website.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>Name &amp; Position</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Kontaktmöglichkeiten (Telefon, WhatsApp, E-Mail)</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Instagram &amp; Website verlinkt</li>
+          </ul>
+          <div class="sd-extras">
+            <div class="sd-extras-label">Passende Extras</div>
+            <div class="sd-extra-row"><span>QR-Code / NFC-Karte</span><strong>+10&nbsp;€</strong></div>
+            <div class="sd-extra-row"><span>Weiterer Mitarbeiter</span><strong>+5&nbsp;€</strong></div>
+          </div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-instagram"/></svg></div>
-          <h3>Instagram</h3>
-          <p>Optimierung des Profils und einfache Verbindung zu anderen Kontaktmöglichkeiten.</p>
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-instagram"/></svg></span><h3>Instagram-Profil Check</h3></div>
+            <div class="sd-price">15&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Wir überprüfen das Instagram-Profil eines Unternehmens und geben verständliches Feedback – z. B. zu Profilname, Bio, Kontaktmöglichkeiten, Link und Profilbild.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>Profilname &amp; Bio prüfen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Kontaktmöglichkeiten &amp; Link prüfen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Grundlegende Darstellung optimieren</li>
+          </ul>
+          <p class="sd-note">Keine Garantie auf mehr Follower oder Reichweite.</p>
+          <div class="sd-extras none"><span class="sd-extras-label">Extras</span>Keine</div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-qr"/></svg></div>
-          <h3>QR-Lösungen</h3>
-          <p>QR-Codes für Bewertungen, Speisekarten, Social Media, Kontakt und weitere Inhalte.</p>
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-qr"/></svg></span><h3>Instagram QR-Code</h3></div>
+            <div class="sd-price">5&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Ein QR-Code, der direkt zum Instagram-Profil des Unternehmens führt.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>QR-Code erstellen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Mit Instagram-Profil verknüpfen</li>
+          </ul>
+          <div class="sd-extras">
+            <div class="sd-extras-label">Passendes Extra</div>
+            <div class="sd-extra-row"><span>NFC &amp; QR-Code Sticker</span><strong>+12&nbsp;€</strong></div>
+          </div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-image"/></svg></div>
-          <h3>Digitale Speisekarten</h3>
-          <p>Mobile Darstellung von Speisen, Preisen oder Dienstleistungen.</p>
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-link"/></svg></span><h3>Digitale Link-Seite</h3></div>
+            <div class="sd-price">20&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Eine zentrale mobile Seite mit den wichtigsten Links eines Unternehmens.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>WhatsApp</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google Maps</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google Review</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Bis zu 2 Social-Media-Links</li>
+          </ul>
+          <p class="sd-note">Ein zusätzlicher Link kann nur eingebaut werden, wenn die entsprechende Leistung bereits vorhanden ist.</p>
+          <div class="sd-extras">
+            <div class="sd-extras-label">Passende Extras</div>
+            <div class="sd-extra-row"><span>Termin-Link</span><strong>+3&nbsp;€</strong></div>
+            <div class="sd-extra-row"><span>Speisekarte-Link</span><strong>+3&nbsp;€</strong></div>
+            <div class="sd-extra-row"><span>Preisliste-Link</span><strong>+3&nbsp;€</strong></div>
+          </div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-link"/></svg></div>
-          <h3>Link-Seiten</h3>
-          <p>Eine zentrale Seite mit allen wichtigen Links des Unternehmens.</p>
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-image"/></svg></span><h3>Digitale Speisekarte / Preisliste</h3></div>
+            <div class="sd-price">15&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Eine einfache mobile Seite für Restaurants, Cafés, Friseure, Barbershops, Beauty-Studios und andere Dienstleister.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>Mobile Seite mit Kategorien</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Produkte / Dienstleistungen &amp; Preise</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Kurze Beschreibungen</li>
+          </ul>
+          <p class="sd-note">Eine einfache digitale Speisekarte bzw. Preisliste – keine vollständige Restaurant-Website.</p>
+          <div class="sd-extras">
+            <div class="sd-extras-label">Passende Extras</div>
+            <div class="sd-extra-row"><span>Integration in Link-Seite</span><strong>+3&nbsp;€</strong></div>
+            <div class="sd-extra-row"><span>Zusätzlicher QR-Code</span><strong>ab 5&nbsp;€</strong></div>
+          </div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></div>
-          <h3>Social-Media-Vorlagen</h3>
-          <p>Einfache, professionelle Vorlagen für Posts und Stories.</p>
+
+        <div class="service-detail-card reveal">
+          <div class="sd-head">
+            <div class="sd-title"><span class="icon-wrap"><svg class="icon"><use href="#i-qr"/></svg></span><h3>Individueller Sticker</h3></div>
+            <div class="sd-price">8–15&nbsp;€</div>
+          </div>
+          <p class="sd-desc">Physischer QR- bzw. NFC-Sticker, z. B. für Google Review, Instagram, WhatsApp oder Zahlungsmethoden. Der genaue Preis hängt von Art und Ausführung ab.</p>
+          <ul class="sd-included">
+            <li><svg class="icon"><use href="#i-check"/></svg>Google Review, Instagram oder WhatsApp</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>QR-Code, NFC oder QR + NFC</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Payment-Sticker (zeigt akzeptierte Zahlungsmethoden)</li>
+          </ul>
+          <p class="sd-note">Ein Payment-Sticker zeigt nur akzeptierte Zahlungsmethoden – er verarbeitet selbst keine Zahlung.</p>
+          <div class="sd-extras none"><span class="sd-extras-label">Hinweis</span>Preis abhängig von Art &amp; Ausführung</div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1421,27 +1627,27 @@ table.compare .dash{ color:var(--color-text-soft); }
 
       <div class="fit-grid" style="margin-bottom:56px;">
         <div class="fit-card reveal">
-          <div class="fit-price">Starter · €19</div>
+          <div class="fit-price">START · €17</div>
           <div class="fit-quote">„Ich brauche nur das Wichtigste."</div>
           <p class="fit-desc">Für Unternehmen, die ihren grundlegenden digitalen Auftritt verbessern möchten.</p>
         </div>
         <div class="fit-card reveal">
-          <div class="fit-price">Social · €29</div>
+          <div class="fit-price">SOCIAL · €22</div>
           <div class="fit-quote">„Ich möchte Instagram besser nutzen."</div>
           <p class="fit-desc">Für Unternehmen, die Social Media stärker mit ihren Kunden verbinden möchten.</p>
         </div>
         <div class="fit-card featured reveal">
-          <div class="fit-price">Business · €49 · Empfohlen</div>
+          <div class="fit-price">LOCAL · €52 · Empfohlen</div>
           <div class="fit-quote">„Ich möchte alles Wichtige an einem Ort."</div>
           <p class="fit-desc">Für die meisten lokalen Unternehmen.</p>
         </div>
         <div class="fit-card reveal">
-          <div class="fit-price">Business Plus · €69</div>
+          <div class="fit-price">BUSINESS · €62</div>
           <div class="fit-quote">„Ich habe eine Speisekarte oder Preisliste."</div>
           <p class="fit-desc">Ideal für Restaurants, Cafés, Friseure, Barbershops und Studios.</p>
         </div>
         <div class="fit-card reveal">
-          <div class="fit-price">Complete · €89</div>
+          <div class="fit-price">COMPLETE · €82</div>
           <div class="fit-quote">„Ich möchte möglichst alles erledigt haben."</div>
           <p class="fit-desc">Für Unternehmen, die mehrere digitale Lösungen gleichzeitig einrichten möchten.</p>
         </div>
@@ -1450,72 +1656,70 @@ table.compare .dash{ color:var(--color-text-soft); }
       <div class="pricing-grid">
 
         <div class="price-card reveal">
-          <div class="price-name">Starter</div>
-          <div class="price-amount"><sup>€</sup>19</div>
+          <div class="price-name">START</div>
+          <div class="price-amount"><sup>€</sup>17</div>
           <div class="price-period">einmalig</div>
+          <div class="price-savings">Einzelwert: 20&nbsp;€ · <strong>Sie sparen 3&nbsp;€</strong></div>
           <ul class="price-features">
             <li><svg class="icon"><use href="#i-check"/></svg>Google-Business-Profil Check</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Google-Review-QR-Code</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Digitale Visitenkarte</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Wichtige Kontaktdaten digital zusammengefasst</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google Review QR-Code</li>
           </ul>
-          <button class="btn btn-secondary btn-block js-pick-package" data-package="Starter (€19)">Starter wählen</button>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="START (€17)">START auswählen</button>
         </div>
 
         <div class="price-card reveal">
-          <div class="price-name">Social</div>
-          <div class="price-amount"><sup>€</sup>29</div>
+          <div class="price-name">SOCIAL</div>
+          <div class="price-amount"><sup>€</sup>22</div>
           <div class="price-period">einmalig</div>
+          <div class="price-savings">Einzelwert: 25&nbsp;€ · <strong>Sie sparen 3&nbsp;€</strong></div>
           <ul class="price-features">
-            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Starter</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Instagram-Profil optimieren</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Instagram-QR-Code</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Direkter Instagram-Link</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Instagram-Profil Check</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Instagram QR-Code</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google Review QR-Code</li>
           </ul>
-          <button class="btn btn-secondary btn-block js-pick-package" data-package="Social (€29)">Social wählen</button>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="SOCIAL (€22)">SOCIAL auswählen</button>
         </div>
 
         <div class="price-card featured reveal">
           <span class="price-badge">Beliebteste Wahl</span>
-          <div class="price-name">Business</div>
-          <div class="price-amount"><sup>€</sup>49</div>
+          <div class="price-name">LOCAL</div>
+          <div class="price-amount"><sup>€</sup>52</div>
           <div class="price-period">einmalig</div>
+          <div class="price-savings">Einzelwert: 60&nbsp;€ · <strong>Sie sparen 8&nbsp;€</strong></div>
           <ul class="price-features">
-            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Social</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Persönliche Link-Seite</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>WhatsApp-Kontakt</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Google Maps</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Termin-/Kontakt-Link</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Google-Bewertungslink</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google-Business-Profil Check</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Google Review QR-Code</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Instagram-Profil Check</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Instagram QR-Code</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Digitale Link-Seite</li>
           </ul>
-          <button class="btn btn-primary btn-block js-pick-package" data-package="Business (€49)">Business wählen</button>
+          <button class="btn btn-primary btn-block js-pick-package" data-package="LOCAL (€52)">LOCAL auswählen</button>
         </div>
 
         <div class="price-card reveal">
-          <div class="price-name">Business Plus</div>
-          <div class="price-amount"><sup>€</sup>69</div>
+          <div class="price-name">BUSINESS</div>
+          <div class="price-amount"><sup>€</sup>62</div>
           <div class="price-period">einmalig</div>
+          <div class="price-savings">Einzelwert: 75&nbsp;€ · <strong>Sie sparen 13&nbsp;€</strong></div>
           <ul class="price-features">
-            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Business</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus LOCAL</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Digitale Speisekarte oder Preisliste</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>QR-Code für Speisekarte/Preisliste</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Zusätzlicher Service- oder Angebotslink</li>
           </ul>
-          <button class="btn btn-secondary btn-block js-pick-package" data-package="Business Plus (€69)">Business Plus wählen</button>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="BUSINESS (€62)">BUSINESS auswählen</button>
         </div>
 
         <div class="price-card reveal">
-          <div class="price-name">Complete</div>
-          <div class="price-amount"><sup>€</sup>89</div>
+          <div class="price-name">COMPLETE</div>
+          <div class="price-amount"><sup>€</sup>82</div>
           <div class="price-period">einmalig</div>
+          <div class="price-savings">Einzelwert: 93&nbsp;€ · <strong>Sie sparen 11&nbsp;€</strong></div>
           <ul class="price-features">
-            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus Business Plus</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Bis zu 3 digitale Mitarbeiter-Visitenkarten</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Alles aus BUSINESS</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Digitale Mitarbeiter-Visitenkarte</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>QR-Code / NFC-Karte</li>
             <li><svg class="icon"><use href="#i-check"/></svg>5 Social-Media-Vorlagen</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Einrichtung aller wichtigen Links</li>
-            <li><svg class="icon"><use href="#i-check"/></svg>Optimierung für Smartphone-Nutzung</li>
           </ul>
-          <button class="btn btn-secondary btn-block js-pick-package" data-package="Complete (€89)">Complete wählen</button>
+          <button class="btn btn-secondary btn-block js-pick-package" data-package="COMPLETE (€82)">COMPLETE auswählen</button>
         </div>
 
       </div>
@@ -1523,31 +1727,31 @@ table.compare .dash{ color:var(--color-text-soft); }
       <!-- Vergleichstabelle -->
       <div style="margin-top:64px;">
         <div class="section-head center reveal">
-          <h2 style="font-size:1.4rem;">Was ist im jeweiligen Paket enthalten?</h2>
+          <h2 style="font-size:1.4rem;">Welches Paket passt zu mir?</h2>
         </div>
         <div class="compare-wrap reveal">
           <table class="compare">
             <thead>
               <tr>
                 <th>Leistung</th>
-                <th>Starter</th>
-                <th>Social</th>
-                <th class="featured-col">Business</th>
-                <th>Business&nbsp;Plus</th>
-                <th>Complete</th>
+                <th>START</th>
+                <th>SOCIAL</th>
+                <th class="featured-col">LOCAL</th>
+                <th>BUSINESS</th>
+                <th>COMPLETE</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Google-Business-Profil Check</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>Google-Review-QR-Code</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>Digitale Visitenkarte</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>Instagram-Optimierung &amp; QR-Code</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>Persönliche Link-Seite</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>WhatsApp-Kontakt &amp; Google Maps</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Google-Business-Profil Check</td><td><svg class="icon"><use href="#i-check"/></svg></td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Google Review QR-Code</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Instagram-Profil Check</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Instagram QR-Code</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Digitale Link-Seite</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
               <tr><td>Digitale Speisekarte / Preisliste</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>Mitarbeiter-Visitenkarten (bis zu 3)</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>Social-Media-Vorlagen</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
-              <tr><td>Preis</td><td>€19</td><td>€29</td><td>€49</td><td>€69</td><td>€89</td></tr>
+              <tr><td>Digitale Mitarbeiter-Visitenkarte</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>QR-Code / NFC-Karte</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>5 Social-Media-Vorlagen</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td class="dash">–</td><td><svg class="icon"><use href="#i-check"/></svg></td></tr>
+              <tr><td>Preis</td><td>€17</td><td>€22</td><td>€52</td><td>€62</td><td>€82</td></tr>
             </tbody>
           </table>
         </div>
@@ -1555,8 +1759,8 @@ table.compare .dash{ color:var(--color-text-soft); }
 
       <div class="cta-banner reveal">
         <h2>Nicht sicher, welches Paket passt?</h2>
-        <p>Schreiben Sie uns kurz, was Ihr Unternehmen macht und was Sie verbessern möchten. Wir sagen Ihnen, welches Paket am sinnvollsten ist.</p>
-        <a href="#kontaktformular" class="btn btn-primary">Unverbindlich fragen</a>
+        <p>Schreiben Sie uns kurz, was Ihr Unternehmen macht und was Sie verbessern möchten. Wir sagen Ihnen, welche Leistung oder welches Paket am sinnvollsten ist.</p>
+        <a href="#kontaktformular" class="btn btn-primary">Unverbindlich anfragen</a>
       </div>
     </div>
   </section>
@@ -1574,8 +1778,8 @@ table.compare .dash{ color:var(--color-text-soft); }
       <div class="process-grid">
         <div class="process-step reveal">
           <span class="process-num">01</span>
-          <h3>Paket auswählen</h3>
-          <p>Sie entscheiden sich für das Paket, das zu Ihrem Unternehmen passt.</p>
+          <h3>Leistung auswählen</h3>
+          <p>Sie entscheiden sich für die Leistung oder das Paket, das zu Ihrem Unternehmen passt.</p>
         </div>
         <div class="process-step reveal">
           <span class="process-num">02</span>
@@ -1673,32 +1877,9 @@ table.compare .dash{ color:var(--color-text-soft); }
   </section>
 
   <!-- ============================================================
-       ZUSATZLEISTUNGEN
-       ============================================================ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Zusatzleistungen</span>
-        <h2>Noch mehr für Ihr Unternehmen</h2>
-        <p>Einzeln buchbar – unabhängig vom gewählten Paket.</p>
-      </div>
-      <div class="addons-grid">
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></span>Google-Review-NFC-Sticker</span><span class="addon-price">€9,90</span></div>
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-star"/></svg></span>Google-Review-NFC-Ständer</span><span class="addon-price">€14,90</span></div>
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-instagram"/></svg></span>Instagram-NFC-Sticker</span><span class="addon-price">€9,90</span></div>
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-card"/></svg></span>Payment-Sticker</span><span class="addon-price">€5,90</span></div>
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-card"/></svg></span>Zusätzliche digitale Visitenkarte</span><span class="addon-price">€9,90</span></div>
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></span>5 zusätzliche Social-Media-Vorlagen</span><span class="addon-price">€10</span></div>
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-qr"/></svg></span>Zusätzlicher QR-Code</span><span class="addon-price">€3</span></div>
-        <div class="addon-item reveal"><span class="addon-name"><span class="icon-wrap"><svg class="icon"><use href="#i-refresh"/></svg></span>Monatliche kleine Änderungen</span><span class="addon-price">€15/Monat</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
        VERTRAUEN
        ============================================================ -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">Warum LUKIO</span>
@@ -1708,22 +1889,22 @@ table.compare .dash{ color:var(--color-text-soft); }
         <div class="trust-item reveal">
           <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
           <h3>Transparente Preise</h3>
-          <p>Klare Pakete ohne komplizierte Preisstruktur.</p>
+          <p>Klare Leistungen und verständliche Preise.</p>
         </div>
         <div class="trust-item reveal">
           <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
           <h3>Einfacher Ablauf</h3>
-          <p>Sie schicken uns Ihre Informationen – wir kümmern uns um die Einrichtung.</p>
+          <p>Sie senden die benötigten Informationen – wir kümmern uns um die Einrichtung.</p>
         </div>
         <div class="trust-item reveal">
           <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
           <h3>Für lokale Unternehmen</h3>
-          <p>Unsere Lösungen sind speziell auf kleine und lokale Betriebe ausgelegt.</p>
+          <p>Die Angebote sind speziell für kleine und lokale Unternehmen gedacht.</p>
         </div>
         <div class="trust-item reveal">
           <div class="icon-wrap"><svg class="icon"><use href="#i-check"/></svg></div>
-          <h3>Keine unnötige Technik</h3>
-          <p>Wir konzentrieren uns auf Lösungen, die Kunden tatsächlich nutzen können.</p>
+          <h3>Klein anfangen</h3>
+          <p>Eine einzelne Leistung kann gekauft und später erweitert werden.</p>
         </div>
       </div>
     </div>
@@ -1757,36 +1938,48 @@ table.compare .dash{ color:var(--color-text-soft); }
       </div>
       <div class="faq-list reveal">
         <details class="faq-item">
-          <summary>Für welche Unternehmen sind die Pakete geeignet?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Für kleine und lokale Unternehmen wie Friseure, Cafés, Restaurants, Studios, Fitnessstudios, Geschäfte und Dienstleister – überall dort, wo Kunden online nach Informationen, Bewertungen oder Kontaktmöglichkeiten suchen.</div>
+          <summary>Was ist eine Einzelleistung?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Eine einzelne LUKIO-Leistung, die unabhängig gebucht werden kann – zum Beispiel nur ein Google Review QR-Code.</div>
         </details>
         <details class="faq-item">
-          <summary>Wie lange dauert die Einrichtung?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Je nach Paket meist wenige Werktage, nachdem uns alle nötigen Informationen vorliegen.</div>
+          <summary>Was ist ein Upgrade?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Eine zusätzliche Erweiterung zu einer bestehenden Leistung – zum Beispiel ein Google Review QR-Code plus NFC-Sticker.</div>
         </details>
         <details class="faq-item">
-          <summary>Muss ich technische Kenntnisse haben?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Nein. Wir übernehmen die technische Einrichtung vollständig. Sie erhalten am Ende fertige, einsatzbereite Lösungen.</div>
+          <summary>Kann ich später ein Upgrade hinzufügen?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Ja. Passende Upgrades können jederzeit zu einer bereits gebuchten Leistung ergänzt werden.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Was ist ein Paket?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Mehrere Leistungen werden zusammengefasst und günstiger angeboten als beim Einzelkauf.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Brauche ich eine eigene Website?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Nein. Viele LUKIO-Lösungen wie QR-Codes, Link-Seiten oder digitale Visitenkarten funktionieren unabhängig von einer eigenen Website.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Kann LUKIO Google-Bewertungen garantieren?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Nein. LUKIO macht den Zugang zur Bewertungsseite einfacher – die Bewertung selbst gibt der Kunde freiwillig ab.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Funktionieren QR-Codes mit Smartphones?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Moderne Smartphones können QR-Codes normalerweise direkt mit der Kamera bzw. dem integrierten QR-Scanner öffnen.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Funktionieren NFC-Produkte mit iPhone und Android?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Mit kompatiblen Geräten grundsätzlich ja. Die genaue Bedienung kann je nach Gerät variieren.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Gibt es monatliche Kosten?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Die angegebenen Leistungen sind grundsätzlich einmalige Preise. Laufende Kosten entstehen nur bei ausdrücklich gebuchten laufenden Leistungen.</div>
         </details>
         <details class="faq-item">
           <summary>Was muss ich bereitstellen?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Im Wesentlichen Ihre Unternehmensdaten, Kontaktinformationen und – je nach Paket – Inhalte wie Speisekarte oder Preisliste. Genaue Details erhalten Sie nach Ihrer Anfrage.</div>
+          <div class="faq-answer">Nur die für die jeweilige Leistung benötigten Informationen – zum Beispiel Unternehmensdaten, Links oder Inhalte wie Preise oder Speisekarte.</div>
         </details>
         <details class="faq-item">
-          <summary>Kann ich später Änderungen vornehmen lassen?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Ja. Kleine Änderungen können Sie über die Zusatzleistung „Monatliche kleine Änderungen" laufend buchen.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Kann ich einzelne Leistungen zusätzlich buchen?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Ja, viele Leistungen sind auch einzeln als Zusatzleistung verfügbar – unabhängig vom gewählten Paket.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Erhalte ich eine richtige Website?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Unsere Pakete konzentrieren sich bewusst auf einfache digitale Lösungen. Eine umfangreiche individuelle Website ist nicht Bestandteil der Standardpakete.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Kann ich ein Paket später erweitern?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
-          <div class="faq-answer">Ja. Sie können jederzeit auf ein größeres Paket wechseln oder einzelne Zusatzleistungen buchen.</div>
+          <summary>Wie lange dauert die Einrichtung?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Meist wenige Werktage, nachdem uns alle nötigen Informationen vorliegen.</div>
         </details>
       </div>
     </div>
@@ -1799,8 +1992,8 @@ table.compare .dash{ color:var(--color-text-soft); }
     <div class="container contact-wrap">
       <div class="contact-info reveal">
         <span class="eyebrow">Kontakt</span>
-        <h2>Bereit für einen einfacheren digitalen Auftritt?</h2>
-        <p>Wählen Sie ein Paket oder erzählen Sie uns kurz, was Sie für Ihr Unternehmen benötigen.</p>
+        <h2>Nicht sicher, was Sie brauchen?</h2>
+        <p>Schreiben Sie uns kurz, was Ihr Unternehmen macht und was Sie verbessern möchten. Wir zeigen Ihnen, welche LUKIO-Leistung oder welches Paket am besten passt.</p>
         <div class="contact-channels">
           <a class="contact-channel" href="mailto:hallo@lukio.at">
             <span class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></span>
@@ -1842,23 +2035,35 @@ table.compare .dash{ color:var(--color-text-soft); }
           </div>
         </div>
         <div class="form-group">
-          <label for="f-package">Gewünschtes Paket</label>
+          <label for="f-package">Gewünschte Leistung / gewünschtes Paket</label>
           <select id="f-package" name="package" required>
             <option value="">Bitte wählen</option>
-            <option>Starter (€19)</option>
-            <option>Social (€29)</option>
-            <option selected>Business (€49)</option>
-            <option>Business Plus (€69)</option>
-            <option>Complete (€89)</option>
+            <optgroup label="Pakete">
+              <option>START (€17)</option>
+              <option>SOCIAL (€22)</option>
+              <option selected>LOCAL (€52)</option>
+              <option>BUSINESS (€62)</option>
+              <option>COMPLETE (€82)</option>
+            </optgroup>
+            <optgroup label="Einzelleistungen">
+              <option>Google-Business-Profil Check</option>
+              <option>Google Review QR-Code</option>
+              <option>Digitale Visitenkarte</option>
+              <option>Instagram-Profil Check</option>
+              <option>Instagram QR-Code</option>
+              <option>Digitale Link-Seite</option>
+              <option>Digitale Speisekarte / Preisliste</option>
+              <option>Sticker / NFC / Payment</option>
+            </optgroup>
             <option>Noch unsicher</option>
           </select>
-          <span class="form-error">Bitte wählen Sie ein Paket.</span>
+          <span class="form-error">Bitte wählen Sie eine Leistung oder ein Paket.</span>
         </div>
         <div class="form-group">
           <label for="f-message">Nachricht</label>
           <textarea id="f-message" name="message" placeholder="Kurz zu Ihrem Unternehmen und was Sie sich wünschen ..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Anfrage senden</button>
+        <button type="submit" class="btn btn-primary btn-block">Unverbindlich anfragen</button>
         <p class="form-note">Mit dem Absenden öffnet sich Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht an uns.</p>
       </form>
     </div>
@@ -1874,7 +2079,7 @@ table.compare .dash{ color:var(--color-text-soft); }
     <div class="footer-top">
       <div class="footer-col">
         <div class="footer-brand">LUKIO<span class="dot">.</span></div>
-        <p style="font-size:.9rem; max-width:260px;">Digitale Lösungen für lokale Unternehmen.</p>
+        <p style="font-size:.9rem; max-width:260px;">Einfach. Digital. Lokal.</p>
         <div class="contact-line"><svg class="icon"><use href="#i-instagram"/></svg><a href="https://instagram.com/lukio.at" target="_blank" rel="noopener">@lukio.at</a></div>
       </div>
       <div class="footer-col">
@@ -1909,7 +2114,7 @@ table.compare .dash{ color:var(--color-text-soft); }
 </footer>
 
 <div class="mobile-cta">
-  <a href="#kontaktformular" class="btn btn-primary">Kontakt aufnehmen</a>
+  <a href="#kontaktformular" class="btn btn-primary">Unverbindlich anfragen</a>
 </div>
 
 <script>
