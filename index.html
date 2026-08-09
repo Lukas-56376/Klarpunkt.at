@@ -2125,10 +2125,21 @@ table.compare .dash{ color:var(--color-text-soft); }
      ============================================================ -->
 <footer class="footer">
   <div class="container">
+
     <div class="footer-top">
-      <div class="footer-col">
-        <div class="footer-brand">LUKIO<span class="dot">.</span></div>
-        <p style="font-size:.9rem; max-width:260px;">Einfach. Digital. Lokal.</p>
+
+      <!-- BRAND -->
+      <div class="footer-col footer-brand-col">
+        <div class="footer-brand">
+          LUKIO<span class="dot">.</span>
+        </div>
+
+        <p class="footer-tagline">
+          Einfach. Digital. Lokal.
+        </p>
+      </div>
+
+      <!-- NAVIGATION -->
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
@@ -2138,17 +2149,27 @@ table.compare .dash{ color:var(--color-text-soft); }
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </div>
+
+      <!-- KONTAKT -->
       <div class="footer-col">
         <h4>Kontakt</h4>
-        <div class="contact-line"><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:hallo@lukio.site">hallo@lukio.site</a></div>
+
+        <a class="contact-line" href="mailto:hallo@lukio.site">
+          <svg class="icon">
+            <use href="#i-mail"/>
+          </svg>
+          <span>hallo@lukio.site</span>
+        </a>
       </div>
-      <div class="footer-col">
-        </ul>
-      </div>
+
     </div>
+
     <div class="footer-bottom">
-      <span>© <span id="year"></span> LUKIO. Alle Rechte vorbehalten.</span>
+      <span>
+        © <span id="year"></span> LUKIO. Alle Rechte vorbehalten.
+      </span>
     </div>
+
   </div>
 </footer>
 
