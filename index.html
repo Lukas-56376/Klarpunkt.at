@@ -7,12 +7,12 @@
 <meta name="description" content="LUKIO bietet digitale Lösungen für lokale Unternehmen in Wien: Google Review QR-Codes, NFC-Sticker, digitale Visitenkarten, Instagram QR-Codes, Link-Seiten und digitale Speisekarten.">
 <meta name="author" content="LUKIO">
 <meta name="theme-color" content="#0f6f6a">
-<link rel="canonical" href="https://lukas-56376.github.io/Lukio.at/">
+<link rel="canonical" href="https://www.lukio.site/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="LUKIO – Digitale Lösungen für lokale Unternehmen">
 <meta property="og:description" content="QR-Codes, NFC-Lösungen, digitale Visitenkarten und weitere digitale Lösungen für lokale Unternehmen in Wien.">
-<meta property="og:url" content="https://lukas-56376.github.io/Lukio.at/">
+<meta property="og:url" content="https://www.lukio.site/">
 <meta property="og:locale" content="de_AT">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -612,6 +612,15 @@ input, select, textarea{ font-family:inherit; font-size:1rem; }
   padding:6px 0;
 }
 .price-features .icon{ width:15px; height:15px; color:var(--color-accent); margin-top:3px; flex-shrink:0; }
+.price-extras{
+  font-size:.78rem;
+  color:var(--color-text-soft);
+  border-top:1px solid var(--color-border);
+  padding-top:12px;
+  margin-bottom:16px;
+}
+.price-extras strong{ display:block; font-size:.68rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--color-text-soft); margin-bottom:6px; }
+.price-extras span{ display:block; padding:2px 0; }
 @media (max-width:1100px){ .pricing-grid{ grid-template-columns:repeat(3, 1fr); } }
 @media (max-width:700px){ .pricing-grid{ grid-template-columns:1fr; max-width:380px; margin:0 auto; } .price-card.featured{ order:-1; } }
 
@@ -859,6 +868,28 @@ table.compare .dash{ color:var(--color-text-soft); }
   margin-bottom:16px;
 }
 .phone-outer{ display:flex; justify-content:center; }
+.demo-tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:22px;
+  flex-wrap:wrap;
+}
+.demo-tab{
+  padding:9px 16px;
+  border-radius:20px;
+  border:1px solid var(--color-border-strong);
+  background:var(--color-bg);
+  font-size:.84rem;
+  font-weight:600;
+  color:var(--color-text-muted);
+  transition:border-color .15s ease, color .15s ease, background-color .15s ease;
+}
+.demo-tab:hover{ border-color:var(--color-accent); color:var(--color-accent-dark); }
+.demo-tab.is-active{
+  background:var(--color-accent);
+  border-color:var(--color-accent);
+  color:#fff;
+}
 .phone-shell{
   width:270px;
   border-radius:34px;
@@ -1203,6 +1234,7 @@ table.compare .dash{ color:var(--color-text-soft); }
       <a href="#leistungen">Leistungen</a>
       <a href="#pakete">Pakete</a>
       <a href="#ablauf">So funktioniert's</a>
+      <a href="#demos">Demos</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
@@ -1219,6 +1251,7 @@ table.compare .dash{ color:var(--color-text-soft); }
   <a href="#leistungen">Leistungen</a>
   <a href="#pakete">Pakete</a>
   <a href="#ablauf">So funktioniert's</a>
+  <a href="#demos">Demos</a>
   <a href="#faq">FAQ</a>
   <a href="#kontakt">Kontakt</a>
   <a href="#kontakt" class="btn btn-primary btn-block">Unverbindlich anfragen</a>
@@ -1664,6 +1697,7 @@ table.compare .dash{ color:var(--color-text-soft); }
             <li><svg class="icon"><use href="#i-check"/></svg>Google-Business-Profil Check</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Google Review QR-Code</li>
           </ul>
+          <div class="price-extras"><strong>Passende Extras</strong><span>NFC &amp; QR Sticker +12&nbsp;€</span><span>NFC &amp; QR Aufsteller +16&nbsp;€</span></div>
           <button class="btn btn-secondary btn-block js-pick-package" data-package="START (€17)">START auswählen</button>
         </div>
 
@@ -1677,6 +1711,7 @@ table.compare .dash{ color:var(--color-text-soft); }
             <li><svg class="icon"><use href="#i-check"/></svg>Instagram QR-Code</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Google Review QR-Code</li>
           </ul>
+          <div class="price-extras"><strong>Passende Extras</strong><span>Instagram NFC &amp; QR Sticker +12&nbsp;€</span><span>Google NFC &amp; QR Sticker +12&nbsp;€</span></div>
           <button class="btn btn-secondary btn-block js-pick-package" data-package="SOCIAL (€22)">SOCIAL auswählen</button>
         </div>
 
@@ -1693,6 +1728,7 @@ table.compare .dash{ color:var(--color-text-soft); }
             <li><svg class="icon"><use href="#i-check"/></svg>Instagram QR-Code</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Digitale Link-Seite</li>
           </ul>
+          <div class="price-extras"><strong>Passende Extras</strong><span>NFC &amp; QR Sticker +12&nbsp;€</span><span>QR/NFC-Karte +10&nbsp;€</span></div>
           <button class="btn btn-primary btn-block js-pick-package" data-package="LOCAL (€52)">LOCAL auswählen</button>
         </div>
 
@@ -1705,6 +1741,7 @@ table.compare .dash{ color:var(--color-text-soft); }
             <li><svg class="icon"><use href="#i-check"/></svg>Alles aus LOCAL</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Digitale Speisekarte oder Preisliste</li>
           </ul>
+          <div class="price-extras"><strong>Passende Extras</strong><span>Termin-Link +3&nbsp;€</span><span>NFC &amp; QR Sticker +12&nbsp;€</span></div>
           <button class="btn btn-secondary btn-block js-pick-package" data-package="BUSINESS (€62)">BUSINESS auswählen</button>
         </div>
 
@@ -1719,6 +1756,7 @@ table.compare .dash{ color:var(--color-text-soft); }
             <li><svg class="icon"><use href="#i-check"/></svg>QR-Code / NFC-Karte</li>
             <li><svg class="icon"><use href="#i-check"/></svg>5 Social-Media-Vorlagen</li>
           </ul>
+          <div class="price-extras"><strong>Passende Extras</strong><span>Weiterer Mitarbeiter +5&nbsp;€</span><span>Weitere QR/NFC-Karte +10&nbsp;€</span></div>
           <button class="btn btn-secondary btn-block js-pick-package" data-package="COMPLETE (€82)">COMPLETE auswählen</button>
         </div>
 
@@ -1772,29 +1810,29 @@ table.compare .dash{ color:var(--color-text-soft); }
     <div class="container">
       <div class="section-head center reveal">
         <span class="eyebrow">Ablauf</span>
-        <h2>So funktioniert es</h2>
+        <h2>So einfach funktioniert's</h2>
         <p>Vier Schritte, um die Sie sich kaum kümmern müssen.</p>
       </div>
       <div class="process-grid">
         <div class="process-step reveal">
           <span class="process-num">01</span>
           <h3>Leistung auswählen</h3>
-          <p>Sie entscheiden sich für die Leistung oder das Paket, das zu Ihrem Unternehmen passt.</p>
+          <p>Wählen Sie eine einzelne Leistung, ein Upgrade oder ein Paket.</p>
         </div>
         <div class="process-step reveal">
           <span class="process-num">02</span>
-          <h3>Informationen senden</h3>
-          <p>Sie schicken uns die nötigen Angaben zu Ihrem Unternehmen.</p>
+          <h3>Anfrage senden</h3>
+          <p>Senden Sie uns Ihre Kontaktdaten und die benötigten Informationen.</p>
         </div>
         <div class="process-step reveal">
           <span class="process-num">03</span>
-          <h3>Wir richten alles ein</h3>
-          <p>Wir übernehmen die technische Einrichtung Ihrer digitalen Lösungen.</p>
+          <h3>LUKIO richtet alles ein</h3>
+          <p>Wir erstellen bzw. richten die gewünschte Lösung ein.</p>
         </div>
         <div class="process-step reveal">
           <span class="process-num">04</span>
           <h3>Fertig</h3>
-          <p>Sie erhalten Ihre digitalen Lösungen einsatzbereit zurück.</p>
+          <p>Sie erhalten Ihre fertige Lösung bzw. die vereinbarten Dateien und Links.</p>
         </div>
       </div>
     </div>
@@ -1841,13 +1879,18 @@ table.compare .dash{ color:var(--color-text-soft); }
   <!-- ============================================================
        INTERAKTIVE DEMO
        ============================================================ -->
-  <section class="section">
+  <section class="section" id="demos">
     <div class="container demo-wrap">
       <div class="demo-copy reveal">
-        <span class="demo-tag">Beispiel · keine echte Kundenseite</span>
+        <span class="demo-tag">Beispiel · keine echten Kunden</span>
         <h2>So sieht es für Ihre Kunden aus.</h2>
-        <p style="color:var(--color-text-muted); font-size:1.05rem;">Ein realistisches Beispiel, wie eine zentrale LUKIO-Seite für ein Unternehmen aussehen kann. Tippen Sie auf einen der Buttons, um zu sehen, wohin er führen würde.</p>
-        <p style="color:var(--color-text-muted); margin-bottom:28px;">Genau solche digitalen Lösungen richten wir für lokale Unternehmen ein.</p>
+        <p style="color:var(--color-text-muted); font-size:1.05rem;">Drei realistische Beispiele, wie eine zentrale LUKIO-Seite je nach Branche aussehen kann. Tippen Sie auf einen Button, um zu sehen, wohin er führen würde.</p>
+        <p style="color:var(--color-text-muted); margin-bottom:20px;">Genau solche digitalen Lösungen richten wir für lokale Unternehmen ein.</p>
+        <div class="demo-tabs" role="tablist" aria-label="Demo-Beispiel wählen">
+          <button type="button" class="demo-tab is-active js-demo-tab" data-demo="friseur">Friseur</button>
+          <button type="button" class="demo-tab js-demo-tab" data-demo="restaurant">Restaurant</button>
+          <button type="button" class="demo-tab js-demo-tab" data-demo="beauty">Beauty-Studio</button>
+        </div>
         <a href="#pakete" class="btn btn-primary">Pakete ansehen</a>
       </div>
       <div class="phone-outer reveal">
@@ -1855,11 +1898,11 @@ table.compare .dash{ color:var(--color-text-soft); }
           <div class="phone-screen">
             <div class="phone-notch"></div>
             <div class="phone-header">
-              <div class="phone-avatar">MB</div>
-              <div class="phone-name">Max Barber</div>
-              <div class="phone-sub">Barbershop · Wien</div>
+              <div class="phone-avatar" id="demo-avatar">MB</div>
+              <div class="phone-name" id="demo-name">Max Barber</div>
+              <div class="phone-sub" id="demo-sub">Barbershop · Wien</div>
             </div>
-            <div class="phone-buttons">
+            <div class="phone-buttons" id="demo-buttons">
               <button type="button" class="phone-btn js-demo-btn" data-target="Terminbuchung"><svg class="icon"><use href="#i-clock"/></svg>Termin buchen</button>
               <button type="button" class="phone-btn js-demo-btn" data-target="WhatsApp-Chat"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</button>
               <button type="button" class="phone-btn js-demo-btn" data-target="Instagram-Profil"><svg class="icon"><use href="#i-instagram"/></svg>Instagram</button>
@@ -1869,7 +1912,7 @@ table.compare .dash{ color:var(--color-text-soft); }
               <button type="button" class="phone-btn js-demo-btn" data-target="Öffnungszeiten"><svg class="icon"><use href="#i-image"/></svg>Öffnungszeiten</button>
               <div class="phone-tooltip" id="phone-tooltip"></div>
             </div>
-            <div class="phone-footnote">Demo-Ansicht · Max Barber ist ein Beispielunternehmen</div>
+            <div class="phone-footnote" id="demo-footnote">Demo-Ansicht · Max Barber ist ein Beispielunternehmen</div>
           </div>
         </div>
       </div>
@@ -1966,6 +2009,10 @@ table.compare .dash{ color:var(--color-text-soft); }
           <div class="faq-answer">Moderne Smartphones können QR-Codes normalerweise direkt mit der Kamera bzw. dem integrierten QR-Scanner öffnen.</div>
         </details>
         <details class="faq-item">
+          <summary>Wie funktioniert ein NFC-Sticker?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq-answer">Ein Sticker, den Kunden mit ihrem Smartphone berühren oder scannen können, um direkt zur gewünschten Seite zu kommen – zum Beispiel zur Google-Bewertung oder zum Instagram-Profil.</div>
+        </details>
+        <details class="faq-item">
           <summary>Funktionieren NFC-Produkte mit iPhone und Android?<svg class="icon"><use href="#i-chevron-down"/></svg></summary>
           <div class="faq-answer">Mit kompatiblen Geräten grundsätzlich ja. Die genaue Bedienung kann je nach Gerät variieren.</div>
         </details>
@@ -1995,9 +2042,9 @@ table.compare .dash{ color:var(--color-text-soft); }
         <h2>Nicht sicher, was Sie brauchen?</h2>
         <p>Schreiben Sie uns kurz, was Ihr Unternehmen macht und was Sie verbessern möchten. Wir zeigen Ihnen, welche LUKIO-Leistung oder welches Paket am besten passt.</p>
         <div class="contact-channels">
-          <a class="contact-channel" href="mailto:hallo@lukio.at">
+          <a class="contact-channel" href="mailto:hallo@lukio.site">
             <span class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></span>
-            <span>E-Mail<br><small>hallo@lukio.at</small></span>
+            <span>E-Mail<br><small>hallo@lukio.site</small></span>
           </a>
           <a class="contact-channel" href="#kontaktformular">
             <span class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></span>
@@ -2009,7 +2056,7 @@ table.compare .dash{ color:var(--color-text-soft); }
       <form class="contact-form" id="kontaktformular" novalidate>
         <div class="form-success" id="form-success">
           <svg class="icon"><use href="#i-check"/></svg>
-          <span>Ihre E-Mail-App öffnet sich mit der vorausgefüllten Anfrage. Falls nicht, schreiben Sie uns direkt an <strong>hallo@lukio.at</strong>.</span>
+          <span>Ihre E-Mail-App öffnet sich mit der vorausgefüllten Anfrage. Falls nicht, schreiben Sie uns direkt an <strong>hallo@lukio.site</strong>.</span>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -2053,7 +2100,9 @@ table.compare .dash{ color:var(--color-text-soft); }
               <option>Instagram QR-Code</option>
               <option>Digitale Link-Seite</option>
               <option>Digitale Speisekarte / Preisliste</option>
-              <option>Sticker / NFC / Payment</option>
+              <option>Sticker</option>
+              <option>NFC</option>
+              <option>Payment</option>
             </optgroup>
             <option>Noch unsicher</option>
           </select>
@@ -2093,7 +2142,7 @@ table.compare .dash{ color:var(--color-text-soft); }
       </div>
       <div class="footer-col">
         <h4>Kontakt</h4>
-        <div class="contact-line"><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:hallo@lukio.at">hallo@lukio.at</a></div>
+        <div class="contact-line"><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:hallo@lukio.site">hallo@lukio.site</a></div>
       </div>
       <div class="footer-col">
         <h4>Rechtliches</h4>
@@ -2200,26 +2249,97 @@ table.compare .dash{ color:var(--color-text-soft); }
       'Nachricht:',
       message || '(keine Angabe)'
     ].filter(Boolean);
-    var mailto = 'mailto:hallo@lukio.at?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+    var mailto = 'mailto:hallo@lukio.site?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
 
     successBox.classList.add('is-visible');
     window.location.href = mailto;
   });
 
-  // Demo-Smartphone: Buttons zeigen einen kurzen Hinweis, wohin sie in einer echten LUKIO-Seite führen würden
+  // Interaktive Demo: drei Beispiel-Branchen, per Tab umschaltbar
+  var demoData = {
+    friseur: {
+      avatar: 'MB', name: 'Max Barber', sub: 'Barbershop · Wien', footnote: 'Max Barber ist ein Beispielunternehmen',
+      buttons: [
+        { icon: 'i-clock', label: 'Termin buchen', target: 'Terminbuchung' },
+        { icon: 'i-whatsapp', label: 'WhatsApp', target: 'WhatsApp-Chat' },
+        { icon: 'i-instagram', label: 'Instagram', target: 'Instagram-Profil' },
+        { icon: 'i-map-pin', label: 'Google Maps', target: 'Google Maps' },
+        { icon: 'i-star', label: 'Google Bewertung', target: 'Google-Bewertungsseite' },
+        { icon: 'i-card', label: 'Preise', target: 'Preisliste' },
+        { icon: 'i-image', label: 'Öffnungszeiten', target: 'Öffnungszeiten' }
+      ]
+    },
+    restaurant: {
+      avatar: 'TB', name: 'Trattoria Bella', sub: 'Restaurant · Wien', footnote: 'Trattoria Bella ist ein Beispielunternehmen',
+      buttons: [
+        { icon: 'i-image', label: 'Speisekarte', target: 'Digitale Speisekarte' },
+        { icon: 'i-clock', label: 'Reservierung', target: 'Reservierung' },
+        { icon: 'i-whatsapp', label: 'WhatsApp', target: 'WhatsApp-Chat' },
+        { icon: 'i-instagram', label: 'Instagram', target: 'Instagram-Profil' },
+        { icon: 'i-map-pin', label: 'Google Maps', target: 'Google Maps' },
+        { icon: 'i-star', label: 'Google Bewertung', target: 'Google-Bewertungsseite' }
+      ]
+    },
+    beauty: {
+      avatar: 'SB', name: 'Studio Bella', sub: 'Beauty-Studio · Wien', footnote: 'Studio Bella ist ein Beispielunternehmen',
+      buttons: [
+        { icon: 'i-clock', label: 'Termin buchen', target: 'Terminbuchung' },
+        { icon: 'i-card', label: 'Preisliste', target: 'Preisliste' },
+        { icon: 'i-instagram', label: 'Instagram', target: 'Instagram-Profil' },
+        { icon: 'i-whatsapp', label: 'WhatsApp', target: 'WhatsApp-Chat' },
+        { icon: 'i-star', label: 'Google Bewertung', target: 'Google-Bewertungsseite' }
+      ]
+    }
+  };
+
   var demoTooltip = document.getElementById('phone-tooltip');
-  document.querySelectorAll('.js-demo-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var target = btn.getAttribute('data-target');
-      if (!demoTooltip) return;
-      demoTooltip.textContent = '→ In einer echten LUKIO-Seite öffnet dieser Button: ' + target;
-      demoTooltip.classList.add('is-visible');
-      clearTimeout(demoTooltip._hideTimer);
-      demoTooltip._hideTimer = setTimeout(function(){
-        demoTooltip.classList.remove('is-visible');
-      }, 3200);
+
+  function showDemoTooltip(target){
+    if (!demoTooltip) return;
+    demoTooltip.textContent = '→ In einer echten LUKIO-Seite öffnet dieser Button: ' + target;
+    demoTooltip.classList.add('is-visible');
+    clearTimeout(demoTooltip._hideTimer);
+    demoTooltip._hideTimer = setTimeout(function(){
+      demoTooltip.classList.remove('is-visible');
+    }, 3200);
+  }
+
+  function renderDemo(key){
+    var data = demoData[key];
+    if (!data) return;
+    document.getElementById('demo-avatar').textContent = data.avatar;
+    document.getElementById('demo-name').textContent = data.name;
+    document.getElementById('demo-sub').textContent = data.sub;
+    document.getElementById('demo-footnote').textContent = 'Demo-Ansicht · ' + data.footnote;
+
+    var container = document.getElementById('demo-buttons');
+    container.innerHTML = '';
+    data.buttons.forEach(function(b){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'phone-btn js-demo-btn';
+      btn.setAttribute('data-target', b.target);
+      btn.innerHTML = '<svg class="icon"><use href="#' + b.icon + '"/></svg>' + b.label;
+      btn.addEventListener('click', function(){ showDemoTooltip(b.target); });
+      container.appendChild(btn);
+    });
+    var tooltip = document.createElement('div');
+    tooltip.className = 'phone-tooltip';
+    tooltip.id = 'phone-tooltip';
+    container.appendChild(tooltip);
+    demoTooltip = tooltip;
+  }
+
+  document.querySelectorAll('.js-demo-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.js-demo-tab').forEach(function(t){ t.classList.remove('is-active'); });
+      tab.classList.add('is-active');
+      renderDemo(tab.getAttribute('data-demo'));
     });
   });
+
+  // Erstes Demo-Beispiel mit den Klick-Handlern verdrahten
+  renderDemo('friseur');
 
   // Scroll-Reveal
   var revealEls = document.querySelectorAll('.reveal');
