@@ -8,6 +8,10 @@
 <meta name="author" content="LUKIO">
 <meta name="theme-color" content="#0f6f6a">
 <link rel="canonical" href="https://www.lukio.site/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="LUKIO – Digitale Lösungen für lokale Unternehmen">
@@ -1266,7 +1270,7 @@ table.compare .dash{ color:var(--color-text-soft); }
     <div class="container">
       <div class="hero-copy">
         <h1>Digitale Lösungen für lokale Unternehmen in Wien</h1>
-        <p class="hero-sub">Wir hilft lokalen Unternehmen dabei, online professioneller aufzutreten und wichtige Informationen für ihre Kunden einfacher zugänglich zu machen.</p>
+        <p class="hero-sub">LUKIO hilft lokalen Unternehmen dabei, online professioneller aufzutreten und wichtige Informationen für ihre Kunden einfacher zugänglich zu machen.</p>
         <div class="hero-ctas">
           <a href="#leistungen" class="btn btn-primary">Leistungen entdecken <svg class="icon"><use href="#i-arrow-right"/></svg></a>
           <a href="#pakete" class="btn btn-secondary">Pakete ansehen</a>
@@ -2042,9 +2046,9 @@ table.compare .dash{ color:var(--color-text-soft); }
         <h2>Nicht sicher, was Sie brauchen?</h2>
         <p>Schreiben Sie uns kurz, was Ihr Unternehmen macht und was Sie verbessern möchten. Wir zeigen Ihnen, welche LUKIO-Leistung oder welches Paket am besten passt.</p>
         <div class="contact-channels">
-          <a class="contact-channel" href="mailto:home@lukio.site">
+          <a class="contact-channel" href="mailto:hallo@lukio.site">
             <span class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></span>
-            <span>E-Mail<br><small>home@lukio.site</small></span>
+            <span>E-Mail<br><small>hallo@lukio.site</small></span>
           </a>
           <a class="contact-channel" href="#kontaktformular">
             <span class="icon-wrap"><svg class="icon"><use href="#i-layout"/></svg></span>
@@ -2056,7 +2060,7 @@ table.compare .dash{ color:var(--color-text-soft); }
       <form class="contact-form" id="kontaktformular" novalidate>
         <div class="form-success" id="form-success">
           <svg class="icon"><use href="#i-check"/></svg>
-          <span>Ihre E-Mail-App öffnet sich mit der vorausgefüllten Anfrage. Falls nicht, schreiben Sie uns direkt an <strong>home@lukio.site</strong>.</span>
+          <span>Ihre E-Mail-App öffnet sich mit der vorausgefüllten Anfrage. Falls nicht, schreiben Sie uns direkt an <strong>hallo@lukio.site</strong>.</span>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -2125,21 +2129,12 @@ table.compare .dash{ color:var(--color-text-soft); }
      ============================================================ -->
 <footer class="footer">
   <div class="container">
-
     <div class="footer-top">
-
-      <!-- BRAND -->
-      <div class="footer-col footer-brand-col">
-        <div class="footer-brand">
-          LUKIO<span class="dot">.</span>
-        </div>
-
-        <p class="footer-tagline">
-          Einfach. Digital. Lokal.
-        </p>
+      <div class="footer-col">
+        <div class="footer-brand">LUKIO<span class="dot">.</span></div>
+        <p style="font-size:.9rem; max-width:260px;">Einfach. Digital. Lokal.</p>
+        <div class="contact-line"><svg class="icon"><use href="#i-instagram"/></svg><a href="https://instagram.com/lukio.at" target="_blank" rel="noopener">@lukio.at</a></div>
       </div>
-
-      <!-- NAVIGATION -->
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
@@ -2149,27 +2144,25 @@ table.compare .dash{ color:var(--color-text-soft); }
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </div>
-
-      <!-- KONTAKT -->
       <div class="footer-col">
         <h4>Kontakt</h4>
-
-        <a class="contact-line" href="mailto:home@lukio.site">
-          <svg class="icon">
-            <use href="#i-mail"/>
-          </svg>
-          <span>home@lukio.site</span>
-        </a>
+        <div class="contact-line"><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:hallo@lukio.site">hallo@lukio.site</a></div>
       </div>
-
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
+      </div>
     </div>
-
     <div class="footer-bottom">
-      <span>
-        © <span id="year"></span> LUKIO. Alle Rechte vorbehalten.
-      </span>
+      <span>© <span id="year"></span> LUKIO. Alle Rechte vorbehalten.</span>
+      <div class="footer-legal">
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+      </div>
     </div>
-
   </div>
 </footer>
 
@@ -2260,7 +2253,7 @@ table.compare .dash{ color:var(--color-text-soft); }
       'Nachricht:',
       message || '(keine Angabe)'
     ].filter(Boolean);
-    var mailto = 'mailto:home@lukio.site?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+    var mailto = 'mailto:hallo@lukio.site?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
 
     successBox.classList.add('is-visible');
     window.location.href = mailto;
